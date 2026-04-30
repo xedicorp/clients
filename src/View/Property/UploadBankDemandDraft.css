@@ -1,0 +1,912 @@
+.upload-bank-dd-container {
+    width: 100%;
+    max-width: 100%;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.upload-bank-dd-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(33, 162, 167, 0.1) 0%, rgba(33, 162, 167, 0.05) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(33, 162, 167, 0.2);
+}
+
+.upload-bank-dd-header-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.upload-bank-dd-header-icon {
+    display: none !important;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a8287 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(33, 162, 167, 0.3);
+}
+
+.upload-bank-dd-header-icon svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.upload-bank-dd-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a8287 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.upload-bank-dd-subtitle {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: #000000;
+}
+
+.upload-bank-dd-form-card {
+    padding: 32px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.upload-bank-dd-form-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.upload-bank-dd-form-grid {
+    display: grid;
+    gap: 28px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.upload-bank-dd-form-grid > div:first-child {
+    grid-column: 1 / -1;
+}
+
+.upload-bank-dd-form-grid > div:last-child {
+    grid-column: 1 / -1;
+}
+
+
+
+.upload-bank-dd-required {
+    color: #e74c3c;
+    font-size: 14px;
+}
+
+.upload-bank-dd-upload-box {
+    border: 3px dashed #ccc;
+    border-radius: 0px;
+    padding: 48px 30px;
+    text-align: center;
+    background: rgba(230, 254, 255, 0.03);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-bank-dd-upload-box::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(33, 162, 167, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.upload-bank-dd-upload-box:hover {
+    border-color: var(--primary-color);
+}
+
+.upload-bank-dd-upload-box:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.upload-bank-dd-upload-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.upload-bank-dd-upload-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.upload-bank-dd-upload-subtitle {
+    font-size: 14px;
+    color: rgba(127, 143, 166, 0.8);
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+}
+
+.upload-bank-dd-preview-box {
+    border: 1px solid var(--primary-color);
+    border-radius: 0px;
+    padding: 24px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(33, 162, 167, 0.15);
+    animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.upload-bank-dd-preview-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.upload-bank-dd-preview-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 0px;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */
+}
+.upload-bank-dd-pdf-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.2) 0%, rgba(231, 76, 60, 0.1) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 2px solid rgba(231, 76, 60, 0.3);
+}
+
+.upload-bank-dd-preview-info {
+    flex: 1;
+}
+
+.upload-bank-dd-file-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.upload-bank-dd-success-message {
+    font-size: 13px;
+    color: var(--primary-color);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.upload-bank-dd-success-message::before {
+    content: '✓';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.upload-bank-dd-remove-btn {
+    background: var(--primary-color);
+    border: 2px solid #e74c3c;
+    color: #000000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.upload-bank-dd-remove-btn:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+
+.view {
+   background: var(--primary-color);
+    border: 2px solid #3ccde7;
+    color: #0f1315;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.upload-bank-dd-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 2px solid rgba(100, 100, 100, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-color);
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    min-height: 80px;
+    resize: vertical;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.upload-bank-dd-textarea:focus {
+    border-color: var(--primary-color);
+    background: rgba(33, 162, 167, 0.08);
+    box-shadow: 0 0 0 4px rgba(33, 162, 167, 0.1);
+    transform: translateY(-2px);
+}
+
+.upload-bank-dd-form-grid input[type="text"],
+.upload-bank-dd-form-grid input[type="number"] {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 2px solid rgba(100, 100, 100, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-color);
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+
+.upload-bank-dd-form-grid input[type="text"]:focus,
+.upload-bank-dd-form-grid input[type="number"]:focus {
+    border-color: var(--primary-color);
+    background: rgba(33, 162, 167, 0.08);
+    box-shadow: 0 0 0 4px rgba(33, 162, 167, 0.1);
+    transform: translateY(-2px);
+}
+
+.upload-bank-dd-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 24px;
+    /* border-top: 2px solid rgba(100, 100, 100, 0.1); */
+}
+
+.upload-bank-dd-table-card {
+    padding: 32px;
+    width: 100%;
+    margin-top: 28px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.upload-bank-dd-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.upload-bank-dd-table-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.upload-bank-dd-table-title svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+}
+
+.upload-bank-dd-table-badge {
+    background: linear-gradient(135deg, rgba(33, 162, 167, 0.2) 0%, rgba(33, 162, 167, 0.1) 100%);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid rgba(33, 162, 167, 0.3);
+}
+
+.upload-bank-dd-table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(100, 100, 100, 0.1);
+}
+
+.upload-bank-dd-table {
+    width: 100%;
+    font-size: 14px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.upload-bank-dd-table thead tr {
+    background: linear-gradient(135deg, rgba(33, 162, 167, 0.1) 0%, rgba(33, 162, 167, 0.05) 100%);
+}
+
+.upload-bank-dd-table th {
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--primary-color);
+    border-bottom: 2px solid rgba(33, 162, 167, 0.3);
+}
+
+.upload-bank-dd-table th.center {
+    text-align: center;
+}
+
+.upload-bank-dd-table th.right {
+    text-align: right;
+}
+
+.upload-bank-dd-table td.center {
+    text-align: center;
+}
+
+.upload-bank-dd-table td.right {
+    text-align: right;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.upload-bank-dd-table td.date-primary {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.upload-bank-dd-table tbody tr {
+    border-bottom: 1px solid rgba(100, 100, 100, 0.08);
+    transition: all 0.2s ease;
+}
+
+.upload-bank-dd-table tbody tr:hover {
+    background: rgba(33, 162, 167, 0.05);
+    transform: scale(1.01);
+}
+
+.upload-bank-dd-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.upload-bank-dd-table td {
+    padding: 16px 12px;
+}
+
+.upload-bank-dd-file-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.upload-bank-dd-file-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.upload-bank-dd-file-name-text {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.upload-bank-dd-table td.text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.upload-bank-dd-table td.date {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.upload-bank-dd-table .no-data {
+    padding: 40px 20px;
+    text-align: center;
+    color: rgba(127, 143, 166, 0.7);
+    font-size: 15px;
+}
+
+.upload-bank-dd-table .no-data svg {
+    width: 48px;
+    height: 48px;
+    color: rgba(127, 143, 166, 0.4);
+    margin-bottom: 16px;
+}
+
+.upload-bank-dd-table .no-data p {
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.upload-bank-dd-table .no-data span {
+    font-size: 14px;
+    color: rgba(127, 143, 166, 0.6);
+}
+
+.loading-state {
+    padding: 40px 20px;
+    text-align: center;
+    color: rgba(127, 143, 166, 0.7);
+    font-size: 15px;
+}
+
+.upload-bank-dd-view-btn {
+    background: rgba(33, 162, 167, 0.1);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.upload-bank-dd-view-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+.upload-bank-dd-edit-btn {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border: 1px solid #3b82f6;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.upload-bank-dd-edit-btn:hover {
+    background: #3b82f6;
+    color: white;
+    transform: scale(1.1);
+}
+
+.upload-bank-dd-delete-btn {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border: 1px solid #ef4444;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.upload-bank-dd-delete-btn:hover {
+    background: #ef4444;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+/* Header Actions */
+.upload-bank-dd-header-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.header-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.header-nav-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.header-nav-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+}
+
+.dashboard-btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a8287 100%);
+    color: #000000 !important;
+}
+.dashboard-btn:hover {
+    background: linear-gradient(135deg, var(--primary-color) 10%, #18777b 100%);
+    color: #000000 !important;
+}
+
+.dashboard-btn svg {
+    color: #000000 !important;
+    stroke: #000000 !important;
+}
+
+.list-btn {
+    background: linear-gradient(135deg, #1a8287 0%, #166f73 100%);
+    color: #000000 !important;
+}
+.list-btn:hover {
+    background: linear-gradient(135deg, #166f73 0%, #145e62 100%);
+    color: #000000 !important;
+}
+
+.list-btn svg {
+    color: #000000 !important;
+    stroke: #000000 !important;
+}
+
+.new-btn {
+    background: linear-gradient(135deg, #34d399 0%, #22c55e 100%);
+}
+.new-btn:hover {
+    background: linear-gradient(135deg, #34d399 10%, #16a34a 100%);
+}
+
+/* Booking Information Section (Copied from BankDDUpdate.css) */
+.booking-info-section {
+    background: white;
+    /* border-radius: 12px; */
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+}
+
+.section-header {
+    margin-bottom: 10px;
+    padding-bottom: 0;
+    border-bottom: none;
+    display: none;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.section-title svg {
+    width: 18px;
+    height: 18px;
+    color: var(--primary-color);
+}
+
+/* .booking-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 10px;
+} */
+
+.booking-info-item {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: none;
+}
+
+/* Remove border for the last row (last 3 items) */
+.booking-info-item:nth-last-child(-n+3) {
+    border-bottom: none;
+}
+
+.booking-info-item .info-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: auto;
+    flex-shrink: 0;
+    margin-bottom: 4px;
+}
+
+.booking-info-item .info-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #101828;
+    padding: 0;
+    background: transparent !important;
+    border: none !important;
+    text-align: left;
+}
+
+.booking-info-loading {
+    text-align: center;
+    padding: 20px 20px;
+    color: #6c757d;
+    font-style: italic;
+    font-size: 13px;
+}
+
+@media (max-width: 992px) {
+    .booking-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .booking-info-item:nth-last-child(-n+3) {
+        border-bottom: 1px solid #eaecf0;
+    }
+    .booking-info-item:nth-last-child(-n+2) {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .upload-bank-dd-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 20px;
+    }
+    
+    .upload-bank-dd-header-actions {
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+    
+    .upload-bank-dd-header h2 {
+        font-size: 24px;
+    }
+    
+    .upload-bank-dd-form-card,
+    .upload-bank-dd-table-card {
+        padding: 20px;
+    }
+    
+    .upload-bank-dd-upload-box {
+        padding: 32px 20px;
+    }
+    
+    .booking-info-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .booking-info-item {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 16px 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .booking-info-item:last-child {
+        border-bottom: none;
+    }
+    
+    .booking-info-item .info-label {
+        margin-bottom: 0;
+        width: 100px;
+    }
+    
+    .booking-info-item .info-value {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .booking-info-section {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+    
+    .section-title {
+        font-size: 16px;
+    }
+}
+/* ========================================
+   UPLOAD BANK DD INFO STRIP
+======================================== */
+
+.uploadbankdd-info-strip {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 18px 24px;
+    margin-bottom: 20px;
+}
+
+/* 3 Column Grid */
+.uploadbankdd-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 14px;
+}
+
+/* Each Item */
+.uploadbankdd-info-item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+/* Remove bottom border from last row */
+.uploadbankdd-info-item:nth-last-child(-n + 3) {
+    border-bottom: none;
+}
+
+/* Label */
+.uploadbankdd-info-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    position: relative;
+    padding-right: 14px;
+}
+
+.uploadbankdd-info-label::after {
+    content: ':';
+    position: absolute;
+    right: 4px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* Value */
+.uploadbankdd-info-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    text-align: right;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+@media (max-width: 1024px) {
+    .uploadbankdd-info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .uploadbankdd-info-item:nth-last-child(-n + 2) {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .uploadbankdd-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .uploadbankdd-info-item {
+        grid-template-columns: 120px 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .uploadbankdd-info-strip {
+        padding: 14px 16px;
+    }
+
+    .uploadbankdd-info-label {
+        font-size: 12px;
+    }
+
+    .uploadbankdd-info-value {
+        font-size: 13px;
+    }
+}
+
+
+/* Remove white modal box */
+.dd-preview-popup {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Cross button styling */
+.dd-preview-close {
+    color: #fff !important;
+    font-size: 28px !important;
+    top: 15px !important;
+    right: 20px !important;
+}
+
+.dd-preview-close:hover {
+    color: #21a2a7 !important;
+}

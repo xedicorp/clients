@@ -1,0 +1,158 @@
+/* Common Back Button Styles - Consistent across all pages */
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #1a8287 0%, #166f73 100%);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(26, 130, 135, 0.25), 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: linear-gradient(135deg, #166f73 0%, #145e62 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(26, 130, 135, 0.35), 0 2px 5px rgba(0, 0, 0, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.back-btn:active {
+  background: linear-gradient(135deg, #145e62 0%, #124f53 100%);
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(26, 130, 135, 0.3);
+}
+
+.back-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 130, 135, 0.3);
+}
+
+.back-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.back-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+/* Alternative back button styles for specific contexts */
+.back-header-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #1a8287 0%, #166f73 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.back-header-btn:hover {
+  background: linear-gradient(135deg, #166f73 0%, #145e62 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.back-header-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+/* Small button variant (for forms) */
+.small-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #1a8287 0%, #166f73 100%);
+  color: #f7f0f0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.small-btn:hover {
+  background: linear-gradient(135deg, #166f73 0%, #145e62 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.small-btn:active {
+  background: linear-gradient(135deg, #145e62 0%, #124f53 100%);
+  transform: translateY(0);
+}
+
+.small-btn.secondary {
+  background: linear-gradient(135deg, #1a8287 0%, #166f73 100%);
+}
+
+.small-btn.secondary:hover {
+  background: linear-gradient(135deg, #166f73 0%, #145e62 100%);
+}
+
+.small-btn.primary {
+  background: linear-gradient(135deg, #1a8287 0%, #166f73 100%);
+}
+
+.small-btn.primary:hover {
+  background: linear-gradient(135deg, #166f73 0%, #145e62 100%);
+}
+
+.small-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Dashboard Button Styles */
+.dashboard-header-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #1a8287 0%, #166f73 100%);
+  color: #0c0c0c;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.dashboard-header-btn:hover {
+  background: linear-gradient(135deg, #166f73 0%, #145e62 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-header-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}

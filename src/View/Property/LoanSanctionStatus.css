@@ -1,0 +1,547 @@
+.loan-sanction-container {
+    width: 100%;
+    max-width: 100%;
+    animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header Styles */
+.loan-sanction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(33, 162, 167, 0.1) 0%, rgba(33, 162, 167, 0.05) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(33, 162, 167, 0.2);
+}
+
+.loan-sanction-header-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.loan-sanction-header-icon {
+    display: none !important;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a8287 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(33, 162, 167, 0.3);
+}
+
+.loan-sanction-header-icon svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.booking-number {
+    font-size: 20px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.api-response-banner {
+    margin-bottom: 16px;
+    padding: 12px;
+    background: linear-gradient(135deg, rgba(33, 162, 167, 0.1) 0%, rgba(33, 162, 167, 0.05) 100%);
+    border: 1px solid rgba(33, 162, 167, 0.3);
+    border-radius: 6px;
+}
+
+.api-response-banner strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+    font-size: 13px;
+}
+
+.api-response-banner pre {
+    margin: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 12px;
+    color: var(--text-color);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.loan-sanction-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a8287 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.loan-sanction-subtitle {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.loan-sanction-header .small-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.loan-sanction-header .small-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.loan-sanction-card {
+    padding: 32px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.loan-sanction-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.loan-sanction-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+@media (max-width: 768px) {
+    .loan-sanction-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+.loan-checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(33, 162, 167, 0.05);
+    border: 1px solid rgba(33, 162, 167, 0.2);
+    border-radius: 8px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    grid-column: 1 / -1;
+}
+
+.loan-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.loan-checkbox-label {
+    font-size: 14px;
+    color: #000000;
+    cursor: pointer;
+    font-weight: 600;
+    flex: 1;
+}
+
+.loan-checkmark {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    animation: checkmarkPop 0.3s ease;
+}
+
+/* Hide checkmarks/ticks in Loan Sanction Status checkboxes */
+.loan-checkmark {
+    display: none !important;
+}
+
+@keyframes checkmarkPop {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.loan-field label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 6px;
+}
+
+.loan-field label svg {
+    width: 13px;
+    height: 13px;
+    color: var(--primary-color);
+}
+
+.required-star {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+.loan-field input,
+.loan-field textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    font-size: 13px;
+    outline: none;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.loan-field input:focus,
+.loan-field textarea:focus {
+    border-color: var(--primary-color);
+    background: rgba(33, 162, 167, 0.05);
+    box-shadow: 0 0 0 2px rgba(33, 162, 167, 0.1);
+}
+
+.loan-note-field {
+    grid-column: 1 / -1;
+}
+
+.loan-note-field textarea {
+    min-height: 60px;
+    resize: vertical;
+    line-height: 1.4;
+}
+
+.loan-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 24px;
+    /* border-top: 2px solid rgba(100, 100, 100, 0.1); */
+}
+
+.loan-submit-btn {
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.loan-sanction-actions .small-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.loan-sanction-actions .small-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.loan-sanction-actions .small-btn.secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(100, 100, 100, 0.3);
+}
+
+.loan-sanction-actions .small-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.loan-sanction-actions .small-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(33, 162, 167, 0.4);
+}
+
+/* Table Card Styles */
+.loan-sanction-table-card {
+    padding: 28px;
+    width: 100%;
+    margin-top: 24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(100, 100, 100, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.loan-sanction-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid rgba(33, 162, 167, 0.2);
+}
+
+.loan-sanction-table-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.loan-sanction-table-title svg {
+    width: 22px;
+    height: 22px;
+    color: var(--primary-color);
+}
+
+.loan-sanction-table-badge {
+    padding: 6px 14px;
+    background: linear-gradient(135deg, rgba(33, 162, 167, 0.2) 0%, rgba(33, 162, 167, 0.1) 100%);
+    border: 1px solid rgba(33, 162, 167, 0.3);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.loan-sanction-table-wrapper {
+    overflow-x: auto;
+    border-radius: 8px;
+}
+
+.loan-sanction-table {
+    width: 100%;
+    font-size: 14px;
+    border-collapse: collapse;
+}
+
+.loan-sanction-table thead tr {
+    background: linear-gradient(135deg, rgba(33, 162, 167, 0.1) 0%, rgba(33, 162, 167, 0.05) 100%);
+}
+
+.loan-sanction-table th {
+    padding: 14px 12px;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.loan-sanction-table th.center {
+    text-align: center;
+}
+
+.loan-sanction-table th.left {
+    text-align: left;
+}
+
+.loan-sanction-table tbody tr {
+    border-bottom: 1px solid rgba(100, 100, 100, 0.1);
+    transition: all 0.2s ease;
+}
+
+.loan-sanction-table tbody tr:hover {
+    background: rgba(33, 162, 167, 0.05);
+}
+
+.loan-sanction-table td {
+    padding: 14px 12px;
+}
+
+.loan-sanction-table td.center {
+    text-align: center;
+}
+
+.loan-status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.loan-status-indicator svg {
+    width: 14px;
+    height: 14px;
+}
+
+.loan-status-indicator.sanctioned {
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.2) 0%, rgba(39, 174, 96, 0.1) 100%);
+    color: #27ae60;
+    border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+.loan-status-indicator.pending {
+    background: linear-gradient(135deg, rgba(241, 196, 15, 0.2) 0%, rgba(241, 196, 15, 0.1) 100%);
+    color: #f1c40f;
+    border: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+.loan-sanction-table td.date-primary {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.loan-sanction-table td.bank-name {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+.loan-sanction-table td.loan-amount {
+    font-weight: 700;
+    color: #27ae60;
+    font-size: 15px;
+}
+
+.loan-sanction-table td.letter-number {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+}
+
+.loan-sanction-table td.date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+}
+
+.loan-sanction-table td.date svg {
+    width: 14px;
+    height: 14px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.empty-value {
+    color: rgba(255, 255, 255, 0.3);
+    font-style: italic;
+}
+
+.loan-sanction-table .no-data {
+    padding: 60px 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.loan-sanction-table .no-data svg {
+    width: 48px;
+    height: 48px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 16px;
+}
+
+.loan-sanction-table .no-data p {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.loan-sanction-table .no-data span {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ===== STRIP CONTAINER ===== */
+
+.loanSanction-info-strip {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin-bottom: 0 !important;
+}
+
+/* ===== 3 COLUMN MATRIX ===== */
+
+.loanSanction-info-matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 🔥 3 Columns */
+    column-gap: 40px;
+    row-gap: 12px;
+}
+
+/* ===== EACH ROW ===== */
+
+.loanSanction-info-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+/* Remove border for last row set */
+.loanSanction-info-row:nth-last-child(-n + 3) {
+    border-bottom: none;
+}
+
+/* ===== LABEL ===== */
+
+.loanSanction-info-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    position: relative;
+    padding-right: 14px;
+}
+
+.loanSanction-info-label::after {
+    content: ':';
+    position: absolute;
+    right: 4px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* ===== VALUE ===== */
+
+.loanSanction-info-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    text-align: right;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
+    .loanSanction-info-matrix {
+        grid-template-columns: 1fr 1fr;  /* Tablet = 2 columns */
+    }
+
+    .loanSanction-info-row:nth-last-child(-n + 2) {
+        border-bottom: none;
+    }
+}

@@ -1,0 +1,268 @@
+.booking-detail-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.booking-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: var(--card-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-detail-info h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.booking-detail-meta {
+  color: #8ea0ba;
+  font-size: 14px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.booking-detail-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.booking-status-card {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.booking-status-card h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.booking-status-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.booking-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.booking-badge.booking_created {
+  background: rgba(108, 117, 125, 0.15);
+  color: #6c757d;
+}
+
+.booking-badge.payment_pending {
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+}
+
+.booking-badge.payment_confirmed {
+  background: rgba(0, 123, 255, 0.15);
+  color: #007bff;
+}
+
+.booking-badge.workflow_selected {
+  background: rgba(33, 162, 167, 0.15);
+  color: var(--primary-color);
+}
+
+.booking-badge.closed {
+  background: rgba(40, 167, 69, 0.15);
+  color: #28a745;
+}
+
+.workflow-steps-card {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.workflow-steps-card h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.workflow-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: #8ea0ba;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 2px dashed rgba(100, 100, 100, 0.2);
+}
+
+.workflow-empty-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.workflow-empty-text {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.workflow-empty-hint {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.workflow-steps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.workflow-step-item {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.workflow-step-item:hover {
+  transform: translateX(4px);
+}
+
+.workflow-step-item:active {
+  transform: translateX(2px);
+}
+
+.workflow-step-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.workflow-step-content {
+  flex: 1;
+  padding: 14px 16px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.workflow-step-content.pending {
+  background: rgba(240, 173, 78, 0.08);
+  border: 1px solid rgba(240, 173, 78, 0.2);
+}
+
+.workflow-step-content.completed {
+  background: rgba(40, 167, 69, 0.08);
+  border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.workflow-step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.workflow-step-title {
+  font-weight: 600;
+  font-size: 15px;
+  flex: 1;
+}
+
+.workflow-step-title.pending {
+  color: #f0ad4e;
+}
+
+.workflow-step-title.completed {
+  color: #28a745;
+}
+
+.workflow-step-time {
+  font-size: 12px;
+  color: #8ea0ba;
+}
+
+.booking-info-card {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.booking-info-card h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.booking-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+ 
+.booking-info-item {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(100, 100, 100, 0.1);
+}
+
+.booking-info-label {
+  font-size: 12px;
+  color: #8ea0ba;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+
+.booking-info-value.empty {
+  color: #6c757d;
+  font-style: italic;
+}
+
+.workflow-progress {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(33, 162, 167, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(33, 162, 167, 0.2);
+}
+
+.workflow-progress-text {
+  font-size: 13px;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.workflow-progress-bar {
+  height: 8px;
+  background: rgba(100, 100, 100, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.workflow-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), #1a8287);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+

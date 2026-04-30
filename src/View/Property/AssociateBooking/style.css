@@ -1,0 +1,269 @@
+/* ============================= */
+/* WRAPPER & HEADER */
+/* ============================= */
+
+.hold-booking-wrapper {
+    width: 100%;
+    max-width: 100% !important;
+    padding: 24px 40px;   /* side spacing ke liye */
+    box-sizing: border-box;
+}
+
+.hold-booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.hold-booking-header-text h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.hold-booking-subtitle {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* ============================= */
+/* CARD STYLE */
+/* ============================= */
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ============================= */
+/* SECTION HEADER */
+/* ============================= */
+
+.form-section-header {
+    margin-bottom: 20px;
+}
+
+.form-section-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.section-divider {
+    width: 40px;
+    height: 3px;
+    background: var(--primary-color, #007bff);
+    margin-top: 6px;
+    border-radius: 2px;
+}
+
+/* ============================= */
+/* GRID LAYOUT */
+/* ============================= */
+
+.upload-loan-form-grid,
+.booking-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
+}
+
+.upload-loan-field,
+.booking-form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================= */
+/* LABELS */
+/* ============================= */
+
+
+
+/* ============================= */
+/* INPUTS & SELECT */
+/* ============================= */
+
+input,
+select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+input[type="datetime-local"] {
+    padding: 10px 12px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color, #007bff);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+/* Readonly input */
+input[readonly] {
+    background-color: #f3f3f3;
+    cursor: not-allowed;
+}
+
+/* ============================= */
+/* FILE UPLOAD */
+/* ============================= */
+
+.upload-field-with-preview input[type="file"] {
+    padding: 6px;
+}
+
+.file-info-container {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-file-selected {
+    font-size: 13px;
+    color: #444;
+    word-break: break-word;
+}
+
+.btn-view-file {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #f1f1f1;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.btn-view-file:hover {
+    background: #e0e0e0;
+}
+
+/* ============================= */
+/* RERA DROPDOWN */
+/* ============================= */
+
+.rera-wrapper {
+    position: relative;
+}
+
+.rera-dropdown-menu {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    z-index: 999;
+}
+
+.rera-dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.rera-dropdown-item:hover {
+    background-color: #f5f5f5;
+}
+
+.rera-dropdown-no-data {
+    padding: 10px;
+    font-size: 13px;
+    color: #777;
+}
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
+
+.booking-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.small-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.small-btn.primary {
+    background: var(--primary-color, #007bff);
+    color: white;
+}
+
+.small-btn.primary:hover {
+    background: #0056b3;
+}
+
+.small-btn.secondary {
+    background: #e0e0e0;
+}
+
+.small-btn.reminder {
+    background: #fff3cd;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+    .hold-booking-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .booking-form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .small-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hold-booking-wrapper {
+        padding: 16px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    input,
+    select {
+        font-size: 13px;
+    }
+}

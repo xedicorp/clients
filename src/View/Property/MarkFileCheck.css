@@ -1,0 +1,1064 @@
+.mark-file-check-container {
+    width: 100%;
+    max-width: 100%;
+    animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header Styles - Compact */
+.mark-file-check-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    background: transparent;
+    border-radius: 8px;
+    border: 1px solid rgba(33, 162, 167, 0.2);
+}
+
+.mark-file-check-header-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mark-file-check-header-icon {
+    display: none !important;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a8287 100%);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(33, 162, 167, 0.3);
+}
+
+/* ===== OUTER CARD STRIP ===== */
+/* ========================================
+   MARK FILE CHECK INFO STRIP
+======================================== */
+
+.markfilecheck-info-strip {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 0px;
+    padding: 18px 24px;
+    margin-bottom: 20px;
+}
+
+/* 3 Column Matrix */
+.markfilecheck-info-matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 14px;
+}
+
+/* Each Row */
+.markfilecheck-info-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+/* Remove border from last row */
+.markfilecheck-info-row:nth-last-child(-n + 3) {
+    border-bottom: none;
+}
+
+/* Label */
+.markfilecheck-info-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    position: relative;
+    padding-right: 14px;
+}
+
+.markfilecheck-info-label::after {
+    content: ':';
+    position: absolute;
+    right: 4px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* Value */
+.markfilecheck-info-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+@media (max-width: 1024px) {
+    .markfilecheck-info-matrix {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .markfilecheck-info-row:nth-last-child(-n + 2) {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .markfilecheck-info-matrix {
+        grid-template-columns: 1fr;
+    }
+
+    .markfilecheck-info-row {
+        grid-template-columns: 120px 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .markfilecheck-info-strip {
+        padding: 14px 16px;
+    }
+
+    .markfilecheck-info-label {
+        font-size: 12px;
+    }
+
+    .markfilecheck-info-value {
+        font-size: 13px;
+    }
+}
+
+
+.mark-file-check-header-icon svg {
+    width: 16px;
+    height: 16px;
+    color: white;
+}
+
+.mark-file-check-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.mark-file-check-subtitle {
+    margin: 2px 0 0 0;
+    font-size: 11px;
+    color: #000000;
+}
+
+/* Header Actions */
+.mark-file-check-header-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.header-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: none !important;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--primary-color) !important;
+    color: white !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-nav-btn svg {
+    width: 18px;
+    height: 18px;
+    color: white !important;
+    stroke: white !important;
+}
+
+.header-nav-btn:hover {
+    background: #166f73 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-btn {
+    background: var(--primary-color) !important;
+    color: white !important;
+}
+
+.list-btn {
+    background: var(--primary-color) !important;
+    color: white !important;
+}
+
+.new-btn {
+    background: var(--primary-color) !important;
+    border: 1px solid var(--primary-color) !important;
+    color: black !important;
+}
+.new-btn:hover {
+    background: var(--primary-color) !important;
+    color: black !important;
+}
+
+@media (max-width: 768px) {
+    .mark-file-check-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .mark-file-check-header-actions {
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+}
+
+/* Form Card Styles - Compact */
+.mark-file-check-card {
+    padding: 16px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(100, 100, 100, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.mark-file-check-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(33, 162, 167, 0.2); */
+}
+
+.mark-file-check-form-header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.mark-file-check-form-badge {
+    padding: 4px 10px;
+    background: linear-gradient(
+        135deg,
+        rgba(33, 162, 167, 0.2) 0%,
+        rgba(33, 162, 167, 0.1) 100%
+    );
+    border: 1px solid rgba(33, 162, 167, 0.3);
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.mark-file-check-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+@media (max-width: 768px) {
+    .mark-file-check-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form Field Styles - Compact */
+.mark-file-check-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.mark-file-check-field label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 6px;
+}
+
+.mark-file-check-field label svg {
+    width: 13px;
+    height: 13px;
+    color: var(--primary-color);
+}
+
+.mark-file-check-field input,
+.mark-file-check-field select,
+.mark-file-check-field textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    font-size: 13px;
+    outline: none;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.mark-file-check-field input:focus,
+.mark-file-check-field select:focus,
+.mark-file-check-field textarea:focus {
+    border-color: var(--primary-color);
+    background: rgba(33, 162, 167, 0.05);
+    box-shadow: 0 0 0 2px rgba(33, 162, 167, 0.1);
+}
+
+.mark-file-check-field input::placeholder,
+.mark-file-check-field textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.mark-file-check-field textarea {
+    min-height: 70px;
+    resize: vertical;
+    line-height: 1.4;
+}
+
+.mark-file-check-remarks-field {
+    grid-column: 1 / -1;
+}
+
+/* Checkbox Style - Improved */
+.mark-file-check-checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: rgba(33, 162, 167, 0.08);
+    border: 2px solid rgba(33, 162, 167, 0.25);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: fit-content;
+    align-self: flex-end;
+}
+
+.mark-file-check-checkbox-container:hover {
+    background: rgba(33, 162, 167, 0.12);
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 6px rgba(33, 162, 167, 0.15);
+}
+
+.mark-file-check-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.mark-file-check-checkbox-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1.4;
+}
+
+/* Small Button Styles */
+.small-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.small-btn.primary {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.small-btn.primary:hover {
+    background: #166f73;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.small-btn.secondary {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    color: #4b5563;
+}
+
+.small-btn.secondary:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+    transform: translateY(-1px);
+}
+
+/* Actions Styles - Compact */
+.mark-file-check-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 12px;
+    /* border-top: 1px solid rgba(100, 100, 100, 0.15); */
+}
+
+/* Table Card Styles - Compact */
+.mark-file-check-table-card {
+    padding: 16px;
+    width: 100%;
+    margin-top: 12px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
+    border: 1px solid rgba(100, 100, 100, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mark-file-check-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(33, 162, 167, 0.2);
+}
+
+.mark-file-check-table-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.mark-file-check-table-badge {
+    padding: 4px 10px;
+    background: linear-gradient(
+        135deg,
+        rgba(33, 162, 167, 0.2) 0%,
+        rgba(33, 162, 167, 0.1) 100%
+    );
+    border: 1px solid rgba(33, 162, 167, 0.3);
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.mark-file-check-table-wrapper {
+    overflow-x: auto;
+    border-radius: 6px;
+}
+
+.mark-file-check-table {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+.mark-file-check-table thead tr {
+    background: rgba(33, 162, 167, 0.05);
+}
+
+.mark-file-check-table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-bottom: 1px solid rgba(33, 162, 167, 0.2);
+}
+
+.mark-file-check-table th:last-child {
+    text-align: center;
+}
+
+.mark-file-check-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.1);
+    color: var(--text-color);
+    vertical-align: middle;
+    text-align: left;
+}
+
+.mark-file-check-table td:last-child {
+    text-align: center;
+}
+
+.mark-file-check-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.mark-file-check-table tbody tr:hover {
+    background: rgba(33, 162, 167, 0.02);
+}
+
+/* Edit Mode Banner */
+.edit-mode-banner {
+    background: linear-gradient(
+        135deg,
+        rgba(245, 158, 11, 0.1) 0%,
+        rgba(245, 158, 11, 0.05) 100%
+    );
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-mode-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #d97706;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.cancel-edit-btn {
+    background: #f59e0b;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancel-edit-btn:hover {
+    background: #d97706;
+    transform: translateY(-1px);
+}
+
+/* Table Actions - Improved with Text and Better Alignment */
+.file-check-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    min-width: 75px;
+    line-height: 1.2;
+}
+
+.action-btn svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.edit-btn {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.edit-btn:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: #3b82f6;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+.delete-btn {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.delete-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+}
+
+/* Required field asterisk styling */
+.required-asterisk {
+    color: #ef4444;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+
+
+
+/* ========================================
+   RESPONSIVE STYLES FOR MARK FILE CHECK
+   ======================================== */
+
+/* Tablet - 768px */
+@media (max-width: 768px) {
+    .mark-file-check-container {
+        padding: 0;
+    }
+
+    .mark-file-check-header {
+        padding: 12px 14px;
+        margin-bottom: 10px;
+    }
+
+    .mark-file-check-header h2 {
+        font-size: 15px;
+    }
+
+    .mark-file-check-subtitle {
+        font-size: 10px;
+    }
+
+    .header-nav-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .header-nav-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .mark-file-check-card,
+    .mark-file-check-table-card {
+        padding: 14px;
+        margin-top: 10px;
+    }
+
+    .mark-file-check-form-header h3,
+    .mark-file-check-table-title {
+        font-size: 14px;
+    }
+
+    .mark-file-check-form-grid {
+        gap: 10px;
+    }
+
+    .mark-file-check-field label {
+        font-size: 11px;
+        gap: 5px;
+    }
+
+    .mark-file-check-field input,
+    .mark-file-check-field select,
+    .mark-file-check-field textarea {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+    .mark-file-check-checkbox-container {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+
+    .mark-file-check-checkbox {
+        width: 18px;
+        height: 18px;
+    }
+
+    .mark-file-check-checkbox-label {
+        font-size: 13px;
+    }
+
+    .mark-file-check-table {
+        font-size: 11px;
+    }
+
+    .mark-file-check-table th,
+    .mark-file-check-table td {
+        padding: 8px 10px;
+    }
+
+    .action-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+        gap: 5px;
+    }
+
+    .action-btn svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .small-btn {
+        padding: 7px 12px;
+        font-size: 12px;
+        gap: 5px;
+    }
+}
+
+/* Mobile - 600px */
+@media (max-width: 600px) {
+    .mark-file-check-header {
+        padding: 10px 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .mark-file-check-header h2 {
+        font-size: 14px;
+    }
+
+    .mark-file-check-subtitle {
+        font-size: 9px;
+    }
+
+    .mark-file-check-header-actions {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .header-nav-btn {
+        flex: 1;
+        min-width: calc(50% - 3px);
+        padding: 8px 12px;
+        font-size: 12px;
+        justify-content: center;
+    }
+
+    .mark-file-check-card,
+    .mark-file-check-table-card {
+        padding: 12px;
+        border-radius: 6px;
+    }
+
+    .mark-file-check-form-header {
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+    }
+
+    .mark-file-check-form-header h3,
+    .mark-file-check-table-title {
+        font-size: 13px;
+    }
+
+    .mark-file-check-form-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .mark-file-check-field label {
+        font-size: 11px;
+    }
+
+    .mark-file-check-field input,
+    .mark-file-check-field select,
+    .mark-file-check-field textarea {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+    .mark-file-check-field textarea {
+        min-height: 60px;
+    }
+
+    .mark-file-check-checkbox-container {
+        padding: 10px 12px;
+    }
+
+    .mark-file-check-checkbox-label {
+        font-size: 12px;
+    }
+
+    .mark-file-check-actions {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 12px;
+        padding-top: 10px;
+    }
+
+    .small-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 9px 14px;
+        font-size: 12px;
+    }
+
+    .mark-file-check-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .mark-file-check-table {
+        min-width: 600px;
+        font-size: 11px;
+    }
+
+    .mark-file-check-table th,
+    .mark-file-check-table td {
+        padding: 8px;
+        white-space: nowrap;
+    }
+
+    .file-check-actions {
+        flex-direction: row;
+        gap: 6px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .action-btn {
+        width: auto;
+        min-width: 65px;
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .edit-mode-banner {
+        padding: 8px 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .cancel-edit-btn {
+        width: 100%;
+        padding: 7px 12px;
+    }
+}
+
+/* Small Mobile - 480px */
+@media (max-width: 480px) {
+    .mark-file-check-header {
+        padding: 10px;
+    }
+
+    .mark-file-check-header h2 {
+        font-size: 13px;
+    }
+
+    .mark-file-check-subtitle {
+        font-size: 9px;
+    }
+
+    .header-nav-btn {
+        padding: 7px 10px;
+        font-size: 11px;
+    }
+
+    .header-nav-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .mark-file-check-card,
+    .mark-file-check-table-card {
+        padding: 10px;
+    }
+
+    .mark-file-check-form-header h3,
+    .mark-file-check-table-title {
+        font-size: 12px;
+    }
+
+    .mark-file-check-form-badge,
+    .mark-file-check-table-badge {
+        font-size: 9px;
+        padding: 3px 8px;
+    }
+
+    .mark-file-check-field label {
+        font-size: 10px;
+    }
+
+    .mark-file-check-field label svg {
+        width: 11px;
+        height: 11px;
+    }
+
+    .mark-file-check-field input,
+    .mark-file-check-field select,
+    .mark-file-check-field textarea {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+
+    .mark-file-check-field textarea {
+        min-height: 55px;
+    }
+
+    .mark-file-check-checkbox-container {
+        padding: 8px 10px;
+        gap: 8px;
+    }
+
+    .mark-file-check-checkbox {
+        width: 16px;
+        height: 16px;
+    }
+
+    .mark-file-check-checkbox-label {
+        font-size: 11px;
+    }
+
+    .small-btn {
+        padding: 8px 12px;
+        font-size: 11px;
+        gap: 4px;
+    }
+
+    .small-btn svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .mark-file-check-table {
+        font-size: 10px;
+    }
+
+    .mark-file-check-table th,
+    .mark-file-check-table td {
+        padding: 6px 8px;
+    }
+
+    .action-btn {
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+
+    .action-btn svg {
+        width: 11px;
+        height: 11px;
+    }
+
+    .edit-mode-content {
+        font-size: 11px;
+    }
+
+    .cancel-edit-btn {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+}
+
+/* Very Small Mobile - 360px */
+@media (max-width: 360px) {
+    .mark-file-check-header {
+        padding: 8px;
+    }
+
+    .mark-file-check-header h2 {
+        font-size: 12px;
+    }
+
+    .header-nav-btn {
+        padding: 6px 8px;
+        font-size: 10px;
+    }
+
+    .mark-file-check-card,
+    .mark-file-check-table-card {
+        padding: 8px;
+    }
+
+    .mark-file-check-form-header h3,
+    .mark-file-check-table-title {
+        font-size: 11px;
+    }
+
+    .mark-file-check-field label {
+        font-size: 9px;
+    }
+
+    .mark-file-check-field input,
+    .mark-file-check-field select,
+    .mark-file-check-field textarea {
+        padding: 6px 7px;
+        font-size: 10px;
+    }
+
+    .mark-file-check-checkbox-label {
+        font-size: 10px;
+    }
+
+    .small-btn {
+        padding: 7px 10px;
+        font-size: 10px;
+    }
+
+    .action-btn {
+        padding: 5px 7px;
+        font-size: 9px;
+    }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-width: 900px) and (max-height: 500px) {
+    .mark-file-check-header {
+        padding: 8px 12px;
+    }
+
+    .mark-file-check-card,
+    .mark-file-check-table-card {
+        padding: 10px;
+    }
+
+    .mark-file-check-field textarea {
+        min-height: 50px;
+    }
+
+    .mark-file-check-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .small-btn {
+        flex: 1;
+        min-width: calc(50% - 4px);
+    }
+}

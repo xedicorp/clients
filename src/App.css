@@ -1,0 +1,117 @@
+/* 🌍 Global Resets */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+
+  /* Smooth transitions between themes */
+  transition: background 0.3s ease, color 0.3s ease;
+
+  /* Set background & text from theme */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+
+  /* Firefox scrollbar styling */
+  scrollbar-width: auto;
+  scrollbar-color: var(--scroll-thumb, #666) var(--scroll-track, #1e1e2f);
+}
+
+/* 🧭 Default Scrollbar Colors (used if variables aren’t set) */
+:root,
+[data-theme="dark"] {
+  --scroll-track: #1e1e2f;
+  --scroll-thumb: #444;
+  --scroll-thumb-hover: #666;
+}
+
+/* 🌞 Light Mode */
+[data-theme="light"] {
+  --scroll-track: #f2f4f8;
+  --scroll-thumb: #c3c7cf;
+  --scroll-thumb-hover: #a8acb4;
+}
+
+/* Light Mode Scrollbars (auto updates via JS toggle) */
+
+
+
+/* ✅ Firefox SweetAlert Scrollbars */
+.swal-import-popup div[style*='overflow-y: auto'] {
+  scrollbar-width: auto;
+  scrollbar-color: var(--scroll-thumb) transparent;
+}
+
+/* ✅ Chrome / Edge / Safari SweetAlert Scrollbars */
+.swal-import-popup div[style*='overflow-y: auto']::-webkit-scrollbar {
+  width: 8px;
+}
+
+.swal-import-popup div[style*='overflow-y: auto']::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.swal-import-popup div[style*='overflow-y: auto']::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.swal-import-popup div[style*='overflow-y: auto']::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-thumb-hover);
+}
+.eJarUe .nav .nav-item {
+    position: relative;
+}
+
+/* Triangle for active nav item */
+.eJarUe .nav .nav-item.active::after {
+    content: "";
+    position: absolute;
+    right: -10px;         /* adjust if needed */
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid color-mix(in srgb, var(--card-color) 80%, var(--primary-color) 20%);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                   GLOBAL BOOKING INFO STRIP STYLES                         */
+/* -------------------------------------------------------------------------- */
+
+/* ===== Global Modern Scrollbar ===== */
+
+/* Chrome, Edge, Safari */
+html::-webkit-scrollbar {
+  width: 6px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #000; /* or transparent if you want cleaner */
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--primary-color) 70%, white);
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) #000;
+}

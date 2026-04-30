@@ -1,0 +1,523 @@
+/* Township Health Report Styles */
+
+.reports-container {
+    padding: 24px;
+    background-color: #f8fafc;
+    min-height: 100vh;
+    
+}
+
+/* Header Section */
+.reports-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.reports-header-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.reports-header-icon {
+    display: none !important;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.reports-header-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.reports-header h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.2;
+}
+
+.reports-subtitle {
+    margin: 4px 0 0 0;
+    color: #64748b;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.add-township-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--primary-color) !important;
+    border: 1px solid var(--primary-color) !important;
+    border-radius: 8px;
+    color: black !important;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-township-btn:hover {
+    background: var(--primary-color) !important;
+    color: black !important;
+    opacity: 0.9;
+}
+
+.add-township-btn svg {
+    width: 16px;
+    height: 16px;
+    color: black !important;
+    stroke: black !important;
+}
+
+.add-township-btn:disabled {
+    background: #cbd5e1 !important;
+    border-color: #cbd5e1 !important;
+    color: #64748b !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Township Information Section */
+.township-info-section {
+    margin-bottom: 32px;
+}
+
+.township-info-card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.township-info-header h3 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.township-address {
+    margin: 0;
+    color: #64748b;
+    font-size: 16px;
+}
+
+/* Health Cards Section */
+.township-health-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.health-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.health-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.compact-card {
+    padding: 24px;
+}
+
+.compact-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.compact-card-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.township-icon {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+}
+
+.area-icon {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.total-valid-icon {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+}
+
+.compact-card-header {
+    margin-bottom: 16px;
+}
+
+.compact-card-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.compact-card-title {
+    margin: 4px 0 0 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.2;
+}
+
+.compact-card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.compact-card-details.horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.detail-item {
+    font-size: 14px;
+    color: #64748b;
+}
+
+.detail-item span {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+
+/* Table Section */
+
+.reports-table-card {
+    overflow: hidden;
+}
+
+.reports-table-header {
+    padding: 24px;
+    border-bottom: 1px solid #e2e8f0;
+    background: white;
+}
+
+.reports-table-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.reports-table-wrapper {
+    overflow-x: auto;
+}
+
+.reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.reports-table th {
+    background: white;
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #000;
+    border-bottom: 2px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.reports-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #4b5563;
+    vertical-align: middle;
+}
+
+.reports-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.property-info {
+    min-width: 200px;
+}
+
+
+
+.property-details {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.total-collection-cell {
+    text-align: center;
+    min-width: 150px;
+}
+
+.amount-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+
+.amount-badge.total {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+/* Loading States */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f4f6;
+    border-top: 4px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error States */
+.error-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: 16px;
+    text-align: center;
+}
+
+.error-message p {
+    color: #ef4444;
+    font-size: 16px;
+    margin: 0;
+}
+
+.error-message button {
+    padding: 12px 24px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.error-message button:hover {
+    background: #2563eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reports-container {
+        padding: 16px;
+    }
+    
+    .reports-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    
+    .reports-header-content {
+        width: 100%;
+    }
+    
+    .add-township-btn {
+        align-self: flex-end;
+    }
+    
+    .township-health-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .compact-card-details.horizontal {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .chart-container {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .reports-header h2 {
+        font-size: 24px;
+    }
+    
+    .reports-subtitle {
+        font-size: 14px;
+    }
+    
+    .compact-card {
+        padding: 16px;
+    }
+    
+    .compact-card-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .compact-card-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .compact-card-title {
+        font-size: 20px;
+    }
+    
+    .chart-card {
+        padding: 16px;
+    }
+    
+    .chart-container {
+        height: 220px;
+    }
+    
+    .reports-table th,
+    .reports-table td {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .reports-container {
+        background: white;
+        padding: 0;
+    }
+    
+    .add-township-btn {
+        display: none;
+    }
+    
+    .reports-header,
+    .township-info-card,
+    .health-card,
+    .chart-card,
+    .card {
+        box-shadow: none;
+        border: 1px solid #e2e8f0;
+    }
+    
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-container {
+        height: 200px;
+    }
+    
+    .reports-table {
+        font-size: 12px;
+    }
+    
+    .reports-table th,
+    .reports-table td {
+        padding: 8px;
+    }
+}
+
+/* Chart Customizations */
+.recharts-tooltip-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.recharts-default-tooltip {
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.recharts-tooltip-label {
+    color: #1e293b !important;
+    font-weight: 600 !important;
+}
+
+.recharts-tooltip-item {
+    color: #4b5563 !important;
+}
+
+.recharts-legend-wrapper {
+    padding-top: 16px !important;
+}
+
+.recharts-default-legend {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 24px !important;
+}
+
+.recharts-legend-item {
+    margin-right: 0 !important;
+}
+
+/* Custom scrollbar for table */
+.reports-table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.reports-table-wrapper::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.reports-table-wrapper::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.reports-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}

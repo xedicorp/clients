@@ -1,0 +1,732 @@
+.update-initial-payment-container {
+    width: 100%;
+    max-width: 100%;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header Styles */
+.update-initial-payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    padding: 24px 28px;
+    background: linear-gradient(
+        135deg,
+        rgba(33, 162, 167, 0.15) 0%,
+        rgba(33, 162, 167, 0.08) 100%
+    );
+    border-radius: 16px;
+    border: 1px solid rgba(33, 162, 167, 0.25);
+    box-shadow: 0 4px 20px rgba(33, 162, 167, 0.1);
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.update-initial-payment-header-content {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.update-initial-payment-header-icon {
+    display: none !important;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a8287 100%);
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(33, 162, 167, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 6px 20px rgba(33, 162, 167, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(33, 162, 167, 0.5);
+    }
+}
+
+.update-initial-payment-header-icon svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+}
+
+.update-initial-payment-header h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-color);
+    letter-spacing: -0.5px;
+}
+
+.update-initial-payment-subtitle {
+    margin: 6px 0 0 0;
+    font-size: 14px;
+    color: rgba(127, 143, 166, 0.85);
+    font-weight: 500;
+}
+
+/* Booking Info Card */
+.booking-info-card {
+    padding: 28px;
+    margin-bottom: 24px;
+    background: var(--card-color);
+    border: 1px solid rgba(100, 100, 100, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.booking-info-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid rgba(33, 162, 167, 0.2);
+}
+
+.booking-info-header-icon {
+    display: none !important;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        135deg,
+        rgba(33, 162, 167, 0.2) 0%,
+        rgba(33, 162, 167, 0.1) 100%
+    );
+    border-radius: 10px;
+    color: var(--primary-color);
+}
+
+.booking-info-header-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.booking-info-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.booking-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
+}
+
+.info-item:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.info-item-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        135deg,
+        rgba(33, 162, 167, 0.2) 0%,
+        rgba(33, 162, 167, 0.1) 100%
+    );
+    border-radius: 10px;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.info-item-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.info-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.info-item-content .info-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(127, 143, 166, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-item-content .info-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* Form Card */
+.update-initial-payment-form-card {
+    padding: 28px;
+    margin-bottom: 24px;
+    background: var(--card-color);
+    border: 1px solid rgba(100, 100, 100, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(33, 162, 167, 0.2);
+}
+
+.form-header-icon {
+    display: none !important;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        135deg,
+        rgba(33, 162, 167, 0.2) 0%,
+        rgba(33, 162, 167, 0.1) 100%
+    );
+    border-radius: 10px;
+    color: var(--primary-color);
+}
+
+.form-header-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.form-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.update-initial-payment-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.update-initial-payment-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.update-initial-payment-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.update-initial-payment-field label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.update-initial-payment-field label svg {
+    width: 18px;
+    height: 18px;
+    color: var(--primary-color);
+}
+
+.update-initial-payment-field input,
+.update-initial-payment-field select,
+.update-initial-payment-field textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 2px solid rgba(100, 100, 100, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.update-initial-payment-field input:focus,
+.update-initial-payment-field select:focus,
+.update-initial-payment-field textarea:focus {
+    border-color: var(--primary-color);
+    background: rgba(33, 162, 167, 0.05);
+    box-shadow: 0 0 0 3px rgba(33, 162, 167, 0.1);
+    transform: translateY(-1px);
+}
+
+.update-initial-payment-field input:hover,
+.update-initial-payment-field select:hover,
+.update-initial-payment-field textarea:hover {
+    border-color: rgba(33, 162, 167, 0.4);
+}
+
+.update-initial-payment-field select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2321a2a7' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+}
+
+.update-initial-payment-field textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.update-initial-payment-field input::placeholder,
+.update-initial-payment-field textarea::placeholder {
+    color: rgba(127, 143, 166, 0.5);
+}
+
+/* Checkbox Field */
+.update-initial-payment-checkbox-field {
+    grid-column: 1 / -1;
+    padding: 20px;
+    background: linear-gradient(
+        135deg,
+        rgba(33, 162, 167, 0.08) 0%,
+        rgba(33, 162, 167, 0.03) 100%
+    );
+    border: 2px solid rgba(33, 162, 167, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.update-initial-payment-checkbox-field:hover {
+    border-color: rgba(33, 162, 167, 0.4);
+    background: linear-gradient(
+        135deg,
+        rgba(33, 162, 167, 0.12) 0%,
+        rgba(33, 162, 167, 0.05) 100%
+    );
+}
+
+.update-initial-payment-checkbox-field label {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    cursor: pointer;
+    margin: 0;
+}
+
+.update-initial-payment-checkbox-field input[type='checkbox'] {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+    margin-right: 12px;
+    border-radius: 6px;
+}
+
+.checkbox-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.checkbox-content svg {
+    width: 18px;
+    height: 18px;
+    color: var(--primary-color);
+}
+
+/* Action Buttons */
+.update-initial-payment-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 2px solid rgba(100, 100, 100, 0.15);
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+.action-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.action-btn.cancel-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    border: 2px solid rgba(100, 100, 100, 0.3);
+}
+
+.action-btn.cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(100, 100, 100, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn.save-btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a8287 100%);
+    color: white;
+    box-shadow: 0 4px 16px rgba(33, 162, 167, 0.4);
+}
+
+.action-btn.save-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1a8287 0%, #156d72 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(33, 162, 167, 0.5);
+}
+
+.action-btn.save-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.action-btn.save-btn .spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Loading State */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.loading-spinner svg {
+    width: 100%;
+    height: 100%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-state p {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Error State */
+.error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.error-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 24px;
+    color: #ef4444;
+    background: linear-gradient(
+        135deg,
+        rgba(239, 68, 68, 0.15) 0%,
+        rgba(239, 68, 68, 0.05) 100%
+    );
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.error-state h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 12px 0;
+}
+
+.error-state p {
+    font-size: 15px;
+    color: rgba(127, 143, 166, 0.9);
+    margin: 0 0 24px 0;
+    line-height: 1.6;
+}
+
+.error-state p strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.error-state .action-btn {
+    margin-top: 8px;
+}
+
+/* API Response Banner */
+.api-response-banner {
+    padding: 16px;
+    margin-bottom: 24px;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 10px;
+}
+
+.api-response-banner pre {
+    margin: 8px 0 0 0;
+    font-size: 12px;
+    overflow-x: auto;
+}
+/* ========================================
+   UPDATE INITIAL PAYMENT INFO STRIP
+======================================== */
+
+.updateinitialpayment-info-strip {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 18px 24px;
+    margin-bottom: 20px;
+}
+
+/* Row Layout */
+.updateinitialpayment-info-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+}
+
+/* Divider Between Rows */
+.updateinitialpayment-info-divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 16px 0;
+}
+
+/* Each Item */
+.updateinitialpayment-info-item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    padding: 6px 0;
+}
+
+/* Label */
+.updateinitialpayment-info-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    position: relative;
+    padding-right: 14px;
+}
+
+.updateinitialpayment-info-label::after {
+    content: ':';
+    position: absolute;
+    right: 4px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* Value */
+.updateinitialpayment-info-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    text-align: right;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+@media (max-width: 1024px) {
+    .updateinitialpayment-info-row {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .updateinitialpayment-info-row {
+        grid-template-columns: 1fr;
+    }
+
+    .updateinitialpayment-info-item {
+        grid-template-columns: 120px 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .updateinitialpayment-info-strip {
+        padding: 14px 16px;
+    }
+
+    .updateinitialpayment-info-label {
+        font-size: 12px;
+    }
+
+    .updateinitialpayment-info-value {
+        font-size: 13px;
+    }
+}
+
+/* Dark Mode Support */
+[data-theme='dark'] .booking-info-strip {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] .booking-info-value {
+    color: #f3f4f6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .update-initial-payment-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .booking-info-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .update-initial-payment-form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .update-initial-payment-checkbox-field {
+        grid-column: 1;
+    }
+
+    .update-initial-payment-actions {
+        flex-direction: column-reverse;
+    }
+
+    .action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .booking-info-strip {
+        padding: 16px 20px;
+    }
+
+    .booking-info-row {
+        gap: 16px 24px;
+    }
+
+    .booking-info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        min-width: calc(50% - 12px);
+    }
+
+    .booking-info-label,
+    .booking-info-value {
+        white-space: normal;
+    }
+}

@@ -1,0 +1,325 @@
+.update-status-container {
+    width: 100%;
+    max-width: 100%;
+}
+
+.update-status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(33, 162, 167, 0.1) 0%, rgba(33, 162, 167, 0.05) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(33, 162, 167, 0.2);
+}
+
+.update-status-header-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.update-status-header-icon {
+    display: none !important;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a8287 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(33, 162, 167, 0.3);
+}
+
+.update-status-header-icon svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.update-status-header h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a8287 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.update-status-subtitle {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.update-status-header button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.update-status-header button svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Booking Info Card */
+.booking-info-card {
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.booking-info-card h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+    padding-bottom: 16px;
+    /* border-bottom: 1px solid rgba(100, 100, 100, 0.2); */
+}
+
+.booking-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.info-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(127, 143, 166, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.current-status-badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid;
+}
+
+/* Update Form Card */
+.update-status-form-card {
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.update-status-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+}
+
+.update-status-form-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.update-status-form-badge {
+    padding: 6px 12px;
+    background: linear-gradient(135deg, rgba(33, 162, 167, 0.2) 0%, rgba(33, 162, 167, 0.1) 100%);
+    border: 1px solid rgba(33, 162, 167, 0.3);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.update-status-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.update-status-field label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.update-status-field label svg {
+    width: 16px;
+    height: 16px;
+    color: var(--primary-color);
+}
+
+.update-status-field select,
+.update-status-field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.update-status-field select:focus,
+.update-status-field textarea:focus {
+    border-color: var(--primary-color);
+    background: rgba(33, 162, 167, 0.05);
+}
+
+.update-status-field select {
+    cursor: pointer;
+}
+
+.update-status-field textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.update-status-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(100, 100, 100, 0.2);
+}
+
+.update-status-actions button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.update-status-actions button svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Status History Card */
+.status-history-card {
+    padding: 24px;
+}
+
+.status-history-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+}
+
+.status-history-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.status-history-title svg {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-color);
+}
+
+.status-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.status-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--primary-color) 0%, rgba(33, 162, 167, 0.2) 100%);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -26px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border: 3px solid rgba(33, 162, 167, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(33, 162, 167, 0.1);
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(100, 100, 100, 0.2);
+}
+
+.timeline-status {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 6px;
+}
+
+.timeline-date {
+    font-size: 13px;
+    color: rgba(127, 143, 166, 0.7);
+    margin-bottom: 8px;
+}
+
+.timeline-remarks {
+    font-size: 14px;
+    color: rgba(127, 143, 166, 0.9);
+    padding: 10px;
+    background: rgba(33, 162, 167, 0.05);
+    border-left: 3px solid var(--primary-color);
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .update-status-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    
+    .booking-info-grid {
+        grid-template-columns: 1fr;
+    }
+}

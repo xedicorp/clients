@@ -1,0 +1,895 @@
+/* Township Collection Summary Styles */
+
+.reports-container {
+    padding: 24px;
+    background-color: #f8fafc;
+    min-height: 100vh;
+  
+}
+
+/* Header Section */
+.reports-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.reports-header-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.reports-header-icon {
+    display: none !important;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.reports-header-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.reports-header h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.2;
+}
+
+.reports-subtitle {
+    margin: 4px 0 0 0;
+    color: #64748b;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Back button styles moved to src/styles/common-buttons.css */
+
+/* Township Section */
+.township-section {
+    margin-bottom: 32px;
+}
+
+.township-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-bottom: 24px;
+}
+.township-info-grid .info-icon svg{
+    color: var(--primary-color);
+}
+
+
+.info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.info-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.info-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Different icon colors for different card types */
+.township-name .info-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.township-address .info-icon {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.total-plots .info-icon {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.booked-plots .info-icon {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+.unbooked-plots .info-icon {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+}
+
+.total-area .info-icon {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #374151;
+}
+
+.booked-area .info-icon {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #374151;
+}
+
+.unbooked-area .info-icon {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: #374151;
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-label {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.info-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.2;
+}
+
+/* Financial Summary Section */
+.financial-summary-section {
+    margin-bottom: 32px;
+}
+
+.financial-summary-section h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.financial-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.total-booked-value .info-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.amount-received .info-icon {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+.amount-pending .info-icon {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+}
+
+/* Township Actions */
+.township-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Print Button Styles */
+.print-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 28px;
+    border: 1px solid var(--primary-color) !important;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    text-transform: none;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    height: 56px;
+    background: var(--primary-color) !important;
+    color: black !important;
+}
+
+.print-btn:hover {
+    background: var(--primary-color) !important;
+    color: black !important;
+    opacity: 0.9;
+}
+
+.print-btn svg {
+    width: 22px;
+    height: 22px;
+    position: relative;
+    z-index: 1;
+    stroke-width: 2.5;
+    flex-shrink: 0;
+    color: black !important;
+    stroke: black !important;
+}
+
+.print-btn span {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.print-btn:disabled {
+    background: #cbd5e1 !important;
+    border-color: #cbd5e1 !important;
+    color: #64748b !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* .print-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+} */
+
+/* .print-btn:hover::before {
+    width: 400px;
+    height: 400px;
+} */
+
+/* .print-btn:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+} */
+
+/* .print-btn:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+} */
+
+/* .print-btn svg {
+    width: 22px;
+    height: 22px;
+    position: relative;
+    z-index: 1;
+    stroke-width: 2.5;
+    flex-shrink: 0;
+} */
+
+/* .print-btn span {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    font-weight: 600;
+} */
+
+/* Back Button Styles */
+.township-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--primary-color) !important;
+    color: black !important;
+    border: 1px solid var(--primary-color) !important;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    height: 42px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.township-back-btn:hover {
+    background: var(--primary-color) !important;
+    color: black !important;
+    opacity: 0.9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.township-back-btn svg {
+    width: 16px;
+    height: 16px;
+    color: black !important;
+    stroke: black !important;
+}
+
+.township-back-btn:disabled {
+    background: #cbd5e1 !important;
+    border-color: #cbd5e1 !important;
+    color: #64748b !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Download Button Styles */
+.township-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 28px;
+    border: 1px solid var(--primary-color) !important;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    text-transform: none;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    height: 33px;
+    background: var(--primary-color) !important;
+    color: black !important;
+}
+
+.township-download-btn:hover {
+    background: var(--primary-color) !important;
+    color: black !important;
+    opacity: 0.9;
+}
+
+.township-download-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: black !important;
+    stroke: black !important;
+}
+
+.township-download-btn:disabled {
+    background: #cbd5e1 !important;
+    border-color: #cbd5e1 !important;
+    color: #64748b !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* .township-download-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+} */
+
+/* .township-download-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+   background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+} */
+
+/* Table Section */
+.reports-table-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.reports-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    border-bottom: 1px solid #e2e8f0;
+    background: white;
+}
+
+.reports-table-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.amount-badge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+
+.amount-badge.total {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.reports-table-wrapper {
+    overflow-x: auto;
+}
+
+.reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.reports-table th {
+    background: white;
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #000;
+    border-bottom: 2px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.reports-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #4b5563;
+    vertical-align: middle;
+}
+
+.reports-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+
+
+.amount-cell {
+    font-weight: 600;
+    color: #059669;
+    text-align: right;
+}
+
+/* Column Widths */
+.col-booking {
+    width: 10%;
+}
+
+.col-customer {
+    width: 20%;
+}
+
+.col-contact {
+    width: 15%;
+}
+
+.col-description {
+    width: 25%;
+}
+
+.description-cell {
+    text-align: left;
+}
+
+.col-date {
+    width: 15%;
+}
+
+.col-amount {
+    width: 15%;
+    text-align: right !important;
+}
+
+/* Actions Column Styles */
+.actions-cell {
+    text-align: left;
+    width: 250px;
+    padding: 12px 16px !important;
+}
+
+.view-details-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 120px;
+    margin-left: 0;
+    height: 40px;
+}
+
+.view-details-btn:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.view-details-btn:active {
+    transform: translateY(0);
+}
+
+.no-data {
+    text-align: center;
+    color: #9ca3af;
+    font-style: italic;
+    padding: 40px 16px;
+}
+
+/* Loading State */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: 16px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f4f6;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-container p {
+    color: #6b7280;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reports-container {
+        padding: 16px;
+    }
+    
+    .reports-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    
+    .reports-header-content {
+        width: 100%;
+    }
+    
+    .back-btn {
+        align-self: flex-end;
+    }
+    
+    .township-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .financial-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .township-actions {
+        flex-direction: row;
+        width: 100%;
+        gap: 12px;
+    }
+    
+    .print-btn,
+    .township-download-btn {
+        flex: 1;
+        min-width: 140px;
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+    
+   
+    
+  
+}
+
+/* Incomplete Data Indicators */
+.reports-table tbody tr.incomplete-data {
+    background-color: #fef3c7;
+}
+
+.reports-table tbody tr.incomplete-data:hover {
+    background-color: #fde68a;
+}
+
+.missing-data {
+    color: #dc2626 !important;
+    font-style: italic;
+}
+
+/* Mobile Responsive - Small Screens */
+@media (max-width: 480px) {
+    .township-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+    
+    .print-btn,
+    .download-btn {
+        width: 100%;
+        min-width: auto;
+        justify-content: center;
+    }
+}
+/* Error Alert */
+.error-alert {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background-color: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    color: #991b1b;
+    margin-bottom: 24px;
+}
+
+.error-alert svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* Print Styles for Collection Details */
+@media print {
+    /* Hide interactive elements */
+    .back-btn,
+    .township-back-btn,
+    .print-btn,
+    .township-download-btn,
+    .township-actions,
+    .error-alert {
+        display: none !important;
+    }
+
+    /* Reset page margins and layout */
+    @page {
+        margin: 1cm;
+        size: A4 portrait;
+    }
+
+    /* Reset container styles for print */
+    .reports-container {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: white !important;
+        min-height: auto !important;
+        width: 100% !important;
+    }
+
+    /* Header adjustments */
+    .reports-header {
+        margin-bottom: 15px !important;
+        padding: 15px !important;
+        box-shadow: none !important;
+        border: 2px solid #e2e8f0 !important;
+        page-break-after: avoid !important;
+        background: white !important;
+    }
+
+    .reports-header-content {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    .reports-header-icon {
+        background: #667eea !important;
+        print-color-adjust: exact !important;
+        -webkit-print-color-adjust: exact !important;
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .reports-header-icon svg {
+        color: white !important;
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .reports-header h2 {
+        color: #1e293b !important;
+        font-size: 22px !important;
+        margin: 0 !important;
+        font-weight: 700 !important;
+    }
+
+    .reports-subtitle {
+        color: #64748b !important;
+        font-size: 14px !important;
+        margin: 4px 0 0 0 !important;
+    }
+
+    /* Table card adjustments */
+    .reports-table-card {
+        box-shadow: none !important;
+        border: 2px solid #e2e8f0 !important;
+        page-break-inside: auto !important;
+        margin-top: 10px !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+    }
+
+    .reports-table-header {
+        background: #f8fafc !important;
+        print-color-adjust: exact !important;
+        -webkit-print-color-adjust: exact !important;
+        padding: 15px 20px !important;
+        page-break-after: avoid !important;
+        border-bottom: 2px solid #e2e8f0 !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    .reports-table-header h3 {
+        color: #1e293b !important;
+        font-size: 18px !important;
+        margin: 0 !important;
+        font-weight: 600 !important;
+    }
+
+    .amount-badge {
+        print-color-adjust: exact !important;
+        -webkit-print-color-adjust: exact !important;
+        padding: 8px 16px !important;
+        border-radius: 20px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+    }
+
+    .amount-badge.total {
+        background: #667eea !important;
+        color: white !important;
+    }
+
+    /* Table styles */
+    .reports-table-wrapper {
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    .reports-table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        page-break-inside: auto !important;
+    }
+
+    .reports-table thead {
+        display: table-header-group !important;
+        background: #f8fafc !important;
+        print-color-adjust: exact !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    .reports-table th {
+        background: #f8fafc !important;
+        color: #374151 !important;
+        border-bottom: 2px solid #e2e8f0 !important;
+        padding: 10px 12px !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        text-align: left !important;
+        print-color-adjust: exact !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    .reports-table th:last-child {
+        text-align: right !important;
+    }
+
+    .reports-table tbody {
+        display: table-row-group !important;
+    }
+
+    .reports-table tr {
+        page-break-inside: avoid !important;
+        page-break-after: auto !important;
+    }
+
+    .reports-table td {
+        padding: 10px 12px !important;
+        border-bottom: 1px solid #f1f5f9 !important;
+        color: #4b5563 !important;
+        font-size: 12px !important;
+        text-align: left !important;
+    }
+
+    .reports-table td:last-child {
+        text-align: right !important;
+    }
+
+    .reports-table tbody tr:hover {
+        background: transparent !important;
+    }
+
+    .amount-cell {
+        color: #059669 !important;
+        font-weight: 600 !important;
+        text-align: right !important;
+    }
+
+    /* Ensure colors print correctly */
+    * {
+        print-color-adjust: exact !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    /* Page breaks */
+    .reports-header,
+    .reports-table-header {
+        page-break-after: avoid !important;
+    }
+
+    .reports-table tbody tr {
+        page-break-inside: avoid !important;
+    }
+
+    /* Remove shadows and unnecessary styling */
+    .card,
+    .reports-table-card {
+        box-shadow: none !important;
+    }
+
+    /* Ensure proper spacing */
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Hide any scrollbars */
+    ::-webkit-scrollbar {
+        display: none !important;
+    }
+}

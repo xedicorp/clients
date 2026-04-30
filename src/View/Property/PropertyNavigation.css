@@ -1,0 +1,78 @@
+.property-nav-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+}
+
+.property-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    color: #000000 !important;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.property-nav-btn:hover {
+    background: #1a8287;
+}
+
+.property-nav-btn.active {
+    background: #1a8287;
+}
+
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .property-nav-buttons {
+        gap: 8px;
+        padding: 0;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    
+    .property-nav-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+        gap: 6px;
+    }
+    
+    .nav-btn-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .property-nav-buttons {
+        gap: 6px;
+    }
+    
+    .property-nav-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+        min-width: auto;
+    }
+    
+    .nav-btn-label {
+        display: none;
+    }
+    
+    .nav-btn-icon {
+        width: 14px;
+        height: 14px;
+    }
+}

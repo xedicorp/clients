@@ -1,0 +1,999 @@
+.jda-patta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* LEFT SIDE */
+.jda-patta-header-left {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* TITLE */
+.jda-header-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #000000 !important;
+    margin: 0;
+}
+
+/* SUBTITLE */
+.jda-patta-subtitle {
+    font-size: 14px;
+    color: #000000 !important;
+    margin-top: 4px;
+}
+
+/* RIGHT ACTIONS */
+.jda-header-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* BACK BUTTON */
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    background: #1a8287;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.back-button:hover {
+    background: #166f73;
+}
+
+.back-button svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ===== BOOKING INFO ENTERPRISE MATRIX STYLE ===== */
+/* ========================================
+   JDA PATTA INFO STRIP
+======================================== */
+
+.jdapatta-info-strip {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 18px 24px;
+    margin-bottom: 20px;
+}
+
+/* 3 Column Matrix */
+.jdapatta-info-matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 14px;
+}
+
+/* Each Row */
+.jdapatta-info-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+/* Remove border from last row */
+.jdapatta-info-row:nth-last-child(-n + 3) {
+    border-bottom: none;
+}
+
+/* Label */
+.jdapatta-info-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    position: relative;
+    padding-right: 14px;
+}
+
+.jdapatta-info-label::after {
+    content: ':';
+    position: absolute;
+    right: 4px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* Value */
+.jdapatta-info-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    text-align: right;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+@media (max-width: 1024px) {
+    .jdapatta-info-matrix {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .jdapatta-info-row:nth-last-child(-n + 2) {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .jdapatta-info-matrix {
+        grid-template-columns: 1fr;
+    }
+
+    .jdapatta-info-row {
+        grid-template-columns: 120px 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .jdapatta-info-strip {
+        padding: 14px 16px;
+    }
+
+    .jdapatta-info-label {
+        font-size: 12px;
+    }
+
+    .jdapatta-info-value {
+        font-size: 13px;
+    }
+}
+
+.form-header {
+    padding: 16px 20px !important;
+    border-bottom: 1px solid #d1d5db;
+    background: #ffffff;
+    margin-bottom: 20px !important;
+}
+
+.form-header-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+/* ===== TEXT BLOCK ===== */
+
+.form-header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== MAIN HEADING ===== */
+
+.form-header-heading {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+/* ===== SUB HEADING (BELOW TITLE) ===== */
+
+.form-header-subtitle {
+    margin-top: 4px;
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 0 !important;
+}
+
+.jda-patta-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: start;
+    overflow: visible;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.jda-field.hide {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.jda-field.show {
+  height: auto;
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+
+
+.jda-container {
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    padding: 20px 18px;
+    background: #ffffff;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: visible;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+
+.jda-container:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.jda-checkbox-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.jda-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.jda-checkbox-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    cursor: pointer;
+    user-select: none;
+}
+.jda-checkbox-label::before{
+    display: none;
+}
+
+.jda-field {
+    margin-top: 16px;
+    background: #f8fafc;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    padding: 12px;
+    z-index: 20;
+}
+
+.jda-date-field input,
+.jda-field input[type="date"] {
+    width: 100%;
+    height: 40px;
+    padding: 8px 36px 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #0f172a;
+    background: #ffffff;
+    outline: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.jda-date-field input:focus,
+.jda-field input[type="date"]:focus {
+    border-color: #64748b;
+    box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.1);
+}
+
+
+.jda-date-icon {
+    pointer-events: none;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    width: 18px;
+    height: 18px;
+}
+
+
+
+.jda-date-field {
+    position: relative;
+    width: 100%;
+}
+
+
+.jda-container {
+    overflow: visible;
+}
+
+
+.jda-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.jda-note-field {
+    margin-top: 24px;
+    margin-bottom: 20px;
+}
+
+.jda-note-field label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.jda-note-field textarea {
+    background-color: #ffffff !important;
+    width: 100%;
+    height: 150px;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    resize: vertical;
+    overflow-y: auto;
+    line-height: 1.5;
+    color: #0f172a;
+    transition: border-color 0.2s ease;
+}
+
+.jda-note-field textarea:focus {
+    outline: none;
+    border-color: #64748b;
+    box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.1);
+}
+
+
+
+@media (max-width: 1100px) {
+    .jda-patta-form {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        padding: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .jda-patta-form {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 16px;
+    }
+}
+
+/* ================= SUBMIT SECTION PROFESSIONAL STYLE ================= */
+
+.jda-submit-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 20px;
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* ===== COMMON BUTTON BASE STYLE ===== */
+
+
+/* ===== CANCEL BUTTON ===== */
+
+.jda-cancel-btn {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    color: #374151 !important;
+}
+
+.jda-cancel-btn:hover {
+    background: #f9fafb !important;
+    border-color: #9ca3af !important;
+}
+
+.jda-cancel-btn span {
+    color: #374151 !important;
+}
+
+.jda-cancel-btn svg {
+    color: #374151 !important;
+    stroke: #374151 !important;
+}
+
+.jda-cancel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ===== REMINDER BUTTON ===== */
+
+.jda-reminder-btn {
+    background: #f59e0b !important;
+    border: 1px solid #f59e0b !important;
+    color: #000000 !important;
+}
+
+.jda-reminder-btn:hover {
+    background: #d97706 !important;
+    border-color: #d97706 !important;
+}
+
+.jda-reminder-btn span {
+    color: #000000 !important;
+}
+
+.jda-reminder-btn svg {
+    color: #000000 !important;
+    stroke: #000000 !important;
+}
+
+.jda-reminder-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ===== PRIMARY SUBMIT BUTTON ===== */
+
+.jda-submit-btn {
+    background: var(--primary-color) !important;
+    border: 1px solid var(--primary-color) !important;
+    color: #000000 !important;
+}
+
+.jda-submit-btn:hover {
+    background: #1a8287 !important;
+    border-color: #1a8287 !important;
+}
+
+.jda-submit-btn span {
+    color: #000000 !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.jda-submit-btn svg {
+    color: #000000 !important;
+    stroke: #000000 !important;
+}
+
+/* ===== DISABLED STATE ===== */
+
+.jda-submit-btn:disabled {
+    background: #cbd5e1 !important;
+    border-color: #cbd5e1 !important;
+    color: #64748b !important;
+    cursor: not-allowed;
+}
+
+.jda-submit-btn:disabled span {
+    color: #64748b !important;
+}
+
+.jda-submit-btn:disabled svg {
+    color: #64748b !important;
+    stroke: #64748b !important;
+}
+
+/* ===== TEXT VISIBILITY ===== */
+
+.jda-submit-section span {
+    line-height: 1;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: inherit !important;
+}
+
+/* ===== SAME HEIGHT ALL BUTTONS ===== */
+
+.jda-submit-section > * {
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    .jda-submit-section {
+        flex-wrap: wrap;
+        justify-content: stretch;
+        gap: 10px;
+    }
+
+    .jda-submit-section button {
+        flex: 1;
+        min-width: calc(50% - 5px);
+        height: 40px;
+        padding: 0 16px;
+        font-size: 13px;
+    }
+
+    .jda-submit-section button svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .jda-submit-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .jda-submit-section button {
+        width: 100%;
+        min-width: 100%;
+        height: 44px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .jda-submit-section {
+        padding: 12px 0;
+    }
+
+    .jda-submit-section button {
+        height: 42px;
+        font-size: 13px;
+        padding: 0 14px;
+    }
+
+    .jda-submit-section button svg {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* Booking List Button */
+.booking-list-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary-color) !important;
+    border: 1px solid var(--primary-color) !important;
+    color: #000000 !important;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.booking-list-btn svg {
+    color: #000000 !important;
+    stroke: #000000 !important;
+}
+
+.booking-list-btn:hover {
+    opacity: 0.9;
+}
+
+/* ========================================
+   COMPREHENSIVE RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet - 768px */
+@media (max-width: 768px) {
+    .jda-patta-header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 20px;
+        align-items: flex-start;
+    }
+
+    .jda-patta-header-left {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .jda-header-title {
+        font-size: 20px;
+    }
+
+    .jda-patta-subtitle {
+        font-size: 13px;
+    }
+
+    .booking-info-strip {
+        padding: 16px 18px;
+    }
+
+    .booking-info-matrix {
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+    }
+
+    .booking-info-row {
+        grid-template-columns: 140px 1fr;
+        padding: 5px 0;
+    }
+
+    .booking-info-label {
+        font-size: 13px !important;
+    }
+    .form-header {
+        padding: 12px 18px !important;
+    }
+
+    .form-header-heading {
+        font-size: 15px;
+    }
+
+    .form-header-subtitle {
+        font-size: 12px;
+    }
+
+    .jda-patta-form {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .jda-container {
+        padding: 16px 14px;
+    }
+
+    .jda-checkbox {
+        width: 18px;
+        height: 18px;
+    }
+
+    .jda-checkbox-label {
+        font-size: 13px;
+    }
+
+    .jda-field {
+        padding: 9px;
+    }
+
+    .jda-field label {
+        font-size: 11px;
+    }
+
+    .jda-date-field input,
+    .jda-field input[type="date"] {
+        height: 36px;
+        padding: 7px 32px 7px 10px;
+        font-size: 13px;
+    }
+
+    .jda-note-field {
+        margin-top: 16px;
+    }
+
+    .jda-note-field label {
+        font-size: 16px;
+    }
+
+    .jda-note-field textarea {
+        height: 130px;
+        font-size: 13px;
+        padding: 9px;
+    }
+
+    .booking-list-btn {
+        padding: 9px 16px;
+        font-size: 13px;
+    }
+
+    .booking-list-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Mobile - 600px */
+@media (max-width: 600px) {
+    .jda-patta-header {
+        padding: 14px 16px;
+    }
+
+    .jda-header-title {
+        font-size: 18px;
+    }
+
+    .jda-patta-subtitle {
+        font-size: 12px;
+    }
+
+    .booking-info-strip {
+        padding: 14px 16px;
+    }
+
+    .booking-info-row {
+        grid-template-columns: 120px 1fr;
+        padding: 4px 0;
+    }
+
+    .booking-info-label {
+        font-size: 12px !important;
+    }
+
+    .form-header {
+        padding: 10px 16px !important;
+    }
+
+    .form-header-heading {
+        font-size: 14px;
+    }
+
+    .form-header-subtitle {
+        font-size: 11px;
+    }
+
+    .jda-patta-form {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .jda-container {
+        padding: 14px 12px;
+    }
+
+    .jda-checkbox {
+        width: 18px;
+        height: 18px;
+    }
+
+    .jda-checkbox-label {
+        font-size: 13px;
+    }
+
+    .jda-field {
+        padding: 8px;
+        margin-top: 10px;
+    }
+
+    .jda-field label {
+        font-size: 11px;
+        margin-bottom: 5px;
+    }
+
+    .jda-date-field input,
+    .jda-field input[type="date"] {
+        height: 36px;
+        padding: 7px 30px 7px 10px;
+        font-size: 13px;
+    }
+
+    .jda-note-field {
+        margin-top: 14px;
+    }
+
+    .jda-note-field label {
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    .jda-note-field textarea {
+        height: 120px;
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .booking-list-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 16px;
+    }
+}
+
+/* Small Mobile - 480px */
+@media (max-width: 480px) {
+    .jda-patta-header {
+        padding: 12px 14px;
+    }
+
+    .jda-header-title {
+        font-size: 17px;
+    }
+
+    .jda-patta-subtitle {
+        font-size: 11px;
+    }
+
+    .booking-info-strip {
+        padding: 12px 14px;
+    }
+
+    .booking-info-row {
+        grid-template-columns: 110px 1fr;
+    }
+
+    .booking-info-label {
+        font-size: 11px !important;
+    }
+    .form-header {
+        padding: 9px 14px !important;
+    }
+
+    .form-header-heading {
+        font-size: 13px;
+    }
+
+    .form-header-subtitle {
+        font-size: 10px;
+    }
+
+    .jda-patta-form {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .jda-container {
+        padding: 12px 10px;
+        border-radius: 5px;
+    }
+
+    .jda-checkbox {
+        width: 16px;
+        height: 16px;
+    }
+
+    .jda-checkbox-label {
+        font-size: 12px;
+    }
+
+    .jda-field {
+        padding: 7px;
+        margin-top: 9px;
+        border-radius: 5px;
+    }
+
+    .jda-field label {
+        font-size: 10px;
+    }
+
+    .jda-date-field input,
+    .jda-field input[type="date"] {
+        height: 34px;
+        padding: 6px 28px 6px 9px;
+        font-size: 12px;
+    }
+
+    .jda-note-field {
+        margin-top: 12px;
+    }
+
+    .jda-note-field label {
+        font-size: 14px;
+    }
+
+    .jda-note-field textarea {
+        height: 110px;
+        font-size: 12px;
+        padding: 7px;
+    }
+
+    .booking-list-btn {
+        padding: 9px 14px;
+        font-size: 12px;
+    }
+
+    .booking-list-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Very Small Mobile - 360px */
+@media (max-width: 360px) {
+    .jda-patta-header {
+        padding: 10px 12px;
+    }
+
+    .jda-header-title {
+        font-size: 16px;
+    }
+
+    .jda-patta-subtitle {
+        font-size: 10px;
+    }
+
+    .booking-info-strip {
+        padding: 10px 12px;
+    }
+
+    .booking-info-row {
+        grid-template-columns: 100px 1fr;
+    }
+
+    .booking-info-label {
+        font-size: 10px !important;
+    }
+    .form-header {
+        padding: 8px 12px !important;
+    }
+
+    .form-header-heading {
+        font-size: 12px;
+    }
+
+    .form-header-subtitle {
+        font-size: 9px;
+    }
+
+    .jda-patta-form {
+        gap: 9px;
+        padding: 10px;
+    }
+
+    .jda-container {
+        padding: 10px 9px;
+    }
+
+    .jda-checkbox {
+        width: 15px;
+        height: 15px;
+    }
+
+    .jda-checkbox-label {
+        font-size: 11px;
+    }
+
+    .jda-field {
+        padding: 6px;
+        margin-top: 8px;
+    }
+
+    .jda-field label {
+        font-size: 9px;
+    }
+
+    .jda-date-field input,
+    .jda-field input[type="date"] {
+        height: 32px;
+        padding: 5px 26px 5px 8px;
+        font-size: 11px;
+    }
+
+    .jda-note-field {
+        margin-top: 10px;
+    }
+
+    .jda-note-field label {
+        font-size: 13px;
+    }
+
+    .jda-note-field textarea {
+        height: 100px;
+        font-size: 11px;
+        padding: 6px;
+    }
+
+    .booking-list-btn {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+    .booking-list-btn svg {
+        width: 15px;
+        height: 15px;
+    }
+}

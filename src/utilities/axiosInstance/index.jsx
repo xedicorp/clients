@@ -2,9 +2,8 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const axiosInstance = axios.create({
-    baseURL: "https://devapi.rajbhoomi.co.in",
-  // baseURL: "https://localhost:44365",
-  // baseURL: "https://api.rajbhoomi.co.in",
+    baseURL: "https://adminapi.xedicorporation.com",
+   
 });
 const publicRoutes = ["/login", "/register", "/forgot-password"];
   const pathname = window.location.pathname;

@@ -4,7 +4,7 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Menu from "../components/Menu";
-import Notifications from '../View/Property/Notifications';
+ 
 import { Wrapper } from "./style";
 
 const STORAGE_KEY = "property_bookings_v1";
@@ -134,23 +134,7 @@ const Layout = () => {
         <Outlet context={{ username, setUsername }} />
         
       </div>
-       {showReminderPopup && (
-                      <div 
-                          className="reminder-list-overlay"
-                          onClick={(e) => {
-                              if (e.target.classList.contains('reminder-list-overlay')) {
-                                  setShowReminderPopup(false);
-                              }
-                          }}
-                      >
-                          <div className="reminder-list-popup">
-                              <Notifications 
-                                  isPopup={true}
-                                  onClose={() => setShowReminderPopup(false)}
-                              />
-                          </div>
-                      </div>
-                  )}
+  
     </div>
 <Footer />
     

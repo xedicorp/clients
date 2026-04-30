@@ -214,34 +214,7 @@ const handleChangePassword = async () => {
         {/* RIGHT */}
         <div className="header-right d-flex gap-2">
           <div className="notification-wrapper d-flex gap-3" ref={notificationRef}>
-  
-  <div className="notif-item very-low" onClick={() => navigate('/notification/list/4')}>
-    <Bell size={20} />
-    <span className="notif-badge">
-      {dashboardData?.notificationCount?.veryLowPriority || 0}
-    </span>
-  </div>
-
-  <div className="notif-item low" onClick={() => navigate('/notification/list/3')}>
-    <Bell size={20} />
-    <span className="notif-badge">
-      {dashboardData?.notificationCount?.lowPriority || 0}
-    </span>
-  </div>
-
-  <div className="notif-item medium" onClick={() => navigate('/notification/list/2')}>
-    <Bell size={20} />
-    <span className="notif-badge">
-      {dashboardData?.notificationCount?.mediumPriority || 0}
-    </span>
-  </div>
-
-  <div className="notif-item high" onClick={() => navigate('/notification/list/1')}>
-    <Bell size={20} />
-    <span className="notif-badge">
-      {dashboardData?.notificationCount?.highPriority || 0}
-    </span>
-  </div>
+   
 
 </div>
 

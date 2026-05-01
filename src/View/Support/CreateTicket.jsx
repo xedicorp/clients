@@ -20,7 +20,7 @@ export default function CreateTicket() {
     
     const [subject, setSubject] = useState('');
  
-    const [department, setDepartment] = useState('0');
+    // const [department, setDepartment] = useState('0');
  
    
     const [message, setMessage] = useState('');
@@ -42,12 +42,12 @@ export default function CreateTicket() {
  
 
     // Payment options
-    const departments = [
-        { value: '1', label: 'Sales' },
-        { value: '2', label: 'Billing' },
-        { value: '4', label: 'Tech Support' } 
+    // const departments = [
+    //     { value: '1', label: 'Sales' },
+    //     { value: '2', label: 'Billing' },
+    //     { value: '4', label: 'Tech Support' } 
        
-    ];
+    // ];
 
  
     const ALLOWED_FILE_REGEX = /\.(jpg|jpeg|png|pdf)$/i;
@@ -121,75 +121,71 @@ export default function CreateTicket() {
 
     // Submit form
     const handleSubmit = async (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-     
-        setSaving(true);
+    // const errors = [];
 
-        try {
-             
+    // if (!subject.trim()) errors.push("Subject is required");
+    // if (!department) errors.push("Department is required");
+    // if (!message.trim()) errors.push("Message is required");
 
-            const formData = new FormData();
-            formData.append("id",   0);           
-            formData.append("subject", subject);
-            formData.append("departmentId", department);
-            formData.append("message", message);
-           // formData.append("userId", getUserId());
+    // if (errors.length > 0) {
+    //     Swal.fire({
+    //         icon: "warning",
+    //         title: "Validation Error",
+    //         html: errors.map(err => `• ${err}`).join("<br>")
+    //     });
+    //     return;
+    // }
 
-            if (screenshot) {
-                formData.append("screenshot", screenshot);
-            }
+    setSaving(true);
 
-            const response = await axiosInstance.post(
-                API_ENDPOINTS.SUPPORT_TICKET_SAVE,
-                formData,
-                {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    },
-                }
-            );
+    try {
+        const formData = new FormData();
+       formData.append("Id", 0);
+formData.append("Subject", subject);
+formData.append("Message", message);
+formData.append("ClientId", getUserId());
 
-            if (response.status === 200 || response.status === 201) { 
-                const successMessage =response.data ; 
-                Swal.fire({
-                    icon: "success",
-                    title: "Success",
-                    html: `
-                        ${successMessage}
-                    `
-                    });
-                
-                setscreenshot(null);
-                setReceiptPreview(null);
- 
-            }
 
-        } catch (error) {
-            
-            let errorMessage = 'Failed to save receipt. Please try again.';
-
-            if (error.response?.data?.title) {
-                errorMessage = error.response.data.title;
-            } else if (error.response?.data?.message) {
-                errorMessage = error.response.data.message;
-            } else if (error.response?.data?.errors) {
-                const errors = error.response.data.errors;
-                const errorList = Object.keys(errors).map(key => `${key}: ${errors[key].join(', ')}`).join('\n');
-                errorMessage = `Validation errors:\n${errorList}`;
-            } else if (error.message) {
-                errorMessage = error.message;
-            }
-
-             Swal.fire({
-                icon: "error",
-                title: "Save Failed",
-                text: errorMessage
-            });
-        } finally {
-            setSaving(false);
+        if (screenshot) {
+            formData.append("Screenshot", screenshot);
         }
-    };
+
+        const response = await axiosInstance.post(
+            API_ENDPOINTS.SUPPORT_TICKET_SAVE,
+            formData,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }
+        );
+
+        Swal.fire({
+  icon: "success",
+  title: "Ticket Created",
+  text: response?.data || "Your ticket has been submitted successfully"
+});
+
+        // reset
+        setSubject("");
+        setMessage("");
+        setscreenshot(null);
+        setReceiptPreview(null);
+
+    } catch (error) {
+        let errorMessage = 'Failed to save ticket.';
+
+        if (error.response?.data?.message) {
+            errorMessage = error.response.data.message;
+        }
+
+        Swal.fire("Error", errorMessage, "error");
+    } finally {
+        setSaving(false);
+    }
+};
 
  
     return (
@@ -232,9 +228,9 @@ export default function CreateTicket() {
 
                 <form onSubmit={handleSubmit}>
                     <div className="row">
-                        <div className="col-lg-6 col-md-12  mb-3">
+                        <div className="col-lg-12 col-md-12  mb-3">
                             <label htmlFor="subject">
-                                Subject *
+                                Subject <span className="required">*</span>
                             </label>
                             <input
                                 id="subject"
@@ -255,9 +251,9 @@ export default function CreateTicket() {
 
                       
 
-                        <div className="col-lg-6 col-md-12  mb-3">
+                        {/* <div className="col-lg-6 col-md-12  mb-3">
                             <label htmlFor="paymentMode">
-                                Department *
+                                Department <span className="required">*</span>
                             </label>
                             <select
                                 id="department"
@@ -272,11 +268,11 @@ export default function CreateTicket() {
                                     </option>
                                 ))}
                             </select>
-                        </div> 
+                        </div>  */}
                        
                             <div className="col-lg-6 col-md-12 mb-3">
                                 <label htmlFor="remarks">
-                                    Message
+                                    Message <span className="required">*</span>
                                 </label>
                                 <textarea
                                     id="message"
@@ -286,6 +282,7 @@ export default function CreateTicket() {
                                     rows="4"
                                     className='form-control'
                                     style={{height:"200px"}}
+                                    required
                                 />
                             </div>
                             <div className="col-lg-6 col-md-12  mb-3">

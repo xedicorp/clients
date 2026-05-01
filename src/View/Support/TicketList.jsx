@@ -4,8 +4,10 @@ import API_ENDPOINTS from '../../utilities/apiConfig';
 import { toast } from 'react-toastify';
 import Lottie from 'lottie-react';
 import Loading from '../../assets/Loading.json';
+import { useNavigate } from 'react-router-dom';
 
-const ClientList = () => {
+const TicketList = () => {
+  const navigate = useNavigate();
 
   const [ticketList, setTicketList] = useState([]);
   const [selectedTownshipId, setSelectedTownshipId] = useState('');
@@ -14,6 +16,17 @@ const ClientList = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  const [statusFilter, setStatusFilter] = useState('all');
+
+  const getFilteredTickets = () => {
+  if (statusFilter === 'all') return ticketList;
+
+  return ticketList.filter(item => {
+    if (statusFilter === 'pending') return item.statusText.toLowerCase() === 'pending';
+    if (statusFilter === 'closed') return item.statusText.toLowerCase() === 'closed';
+    return true;
+  });
+};
 
    
    
@@ -64,21 +77,22 @@ const ClientList = () => {
         {/* <div className="dashboard-header-actions">
             <button className='primary-btn'>Add Ticket</button>
         </div> */}
-      </div>
+         <div className=" d-flex align-items-end gap-2">
+          <button className='primary-btn' onClick={() => setStatusFilter('all')}>
+  All Tickets
+</button>
 
-      {/* Filters */}
-      <div className="card">
-            <div className="filters-section d-flex gap-3 align-items-end justify-content-between mb-3">
+<button className='primary-btn' onClick={() => setStatusFilter('pending')}>
+  Pending Tickets
+</button>
 
-       
-  <div className=" d-flex align-items-end gap-2">
-          <button className='primary-btn'>All Ticket</button>
-          <button className='primary-btn'>Pending Ticket</button>
-          <button className='primary-btn'>Closed Ticket</button>
+<button className='primary-btn' onClick={() => setStatusFilter('closed')}>
+  Closed Tickets
+</button>
         </div>
-          
       </div>
-      </div>
+
+    
       
 
       {/* Table */}
@@ -90,7 +104,6 @@ const ClientList = () => {
                   <th>Id#</th>
                    <th>Subject</th>
                 <th>Message</th>
-                <th>Department</th>
                    <th>Screenshot</th>
                     <th>Status</th>
                      <th>Created On</th>
@@ -99,19 +112,18 @@ const ClientList = () => {
             </thead>
 
             <tbody>
-        {  ticketList.map((item) => (
+        {  getFilteredTickets().map((item) => (
                   <tr key={item.id}>
                       <td>{item.id}</td>
                     <td>{item.subject}</td>
                     <td>{item.message}</td>
-                    <td>{item.departmentName}</td>
                     <td>{item.screenshot}</td>
                       <td>{item.statusText}</td>
                       <td>{item.createdAt}</td>
                     <td>
                       <button
                         className="primary-btn"
-                        onClick={() => viewDetail(item.id)}
+                        onClick={() => navigate(`/support/view-ticket/${item.id}`)}
                       >
                         View Detail
                       </button>
@@ -128,4 +140,4 @@ const ClientList = () => {
   );
 };
 
-export default ClientList;
+export default TicketList;

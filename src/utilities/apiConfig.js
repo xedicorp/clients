@@ -2,7 +2,7 @@
 // These endpoints will be prefixed with baseURL from axiosInstance
 // In dev: /api (proxied by Vite to https://api.rajbhoomi.co.in)
 // In prod: /api (rewritten by Vercel to https://api.rajbhoomi.co.in)
-export const API_BASE_URL = "https://devapi.rajbhoomi.co.in";
+export const API_BASE_URL = "https://adminapi.xedicorporation.com";
 
 const API_ENDPOINTS = {
     LOGO_SCREEN: '/Master/AppSettings',

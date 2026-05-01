@@ -147,9 +147,13 @@ const handleSend = async () => {
           </p>
         </div>
 
-        <button className="primary-btn" onClick={() => navigate(-1)}>
+        <div className="dashboard-header-actions">
+<button className="primary-btn" onClick={() => navigate(-1)}>
           Back
         </button>
+        </div>
+
+        
       </div>
 
       {/* ================= CARD 1 ================= */}
@@ -265,7 +269,8 @@ const handleSend = async () => {
       <div className="card">
         <div className="row">
           <div className="col-lg-6 col-md-12 mb-3">
-                                <label htmlFor="remarks">
+            <div className="form-group">
+                 <label htmlFor="remarks">
                                     Add Remark
                                 </label>
                                 <textarea
@@ -275,11 +280,14 @@ const handleSend = async () => {
                                     placeholder="Type your remark here"
                                     rows="4"
                                     className='form-control'
-                                    style={{height:"200px"}}
+                                    style={{height:"240px"}}
                                 />
+            </div>
+                               
                             </div>
                             <div className="col-lg-6 col-md-12  mb-3">
-                                <label>
+                                <div className="form-group">
+                                    <label>
                                    Attachment (optional)
                                 </label>
                                 <div className="file-item-wrapper">
@@ -329,6 +337,8 @@ const handleSend = async () => {
   )}
 </div>
                                 </div>
+                                </div>
+                                
                             </div>
                             <div className="col-12 ">
                                <button

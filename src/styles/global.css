@@ -4329,7 +4329,7 @@ table .actions .primary-btn svg{
     background: #fff;
     border-radius: 0px !important;
     padding: 14px;
-    height: 100%;
+    height: auto;
     border: 1px solid #e0e0e0;
     transition: all 0.2s ease;
 }
@@ -5449,4 +5449,56 @@ input:checked + .slider:before {
 }
 .bookin-list-reset button{
     width: 120px;
+}
+
+.chat-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.chat-row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.chat-row.left {
+  justify-content: flex-start;
+}
+
+.chat-row.right {
+  justify-content: flex-end;
+}
+
+.chat-bubble {
+  max-width: 60%;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.chat-row.right .chat-bubble {
+  background: #283550;
+  color: white;
+}
+
+.chat-bubble span {
+  display: block;
+  font-size: 11px;
+  margin-top: 5px;
+  opacity: 0.7;
+}
+
+.status-badge {
+  background: #facc15;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.ticket-img {
+  width: 120px;
+  border-radius: 8px;
+  cursor: pointer;
 }

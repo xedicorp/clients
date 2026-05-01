@@ -37,8 +37,7 @@ const TicketList = () => {
     try {
 
         let url = `${API_ENDPOINTS.SUPPORT_TICKET_LIST}?`; 
-          //  url += `departmentId=0&`; 
-               url += `status=1`; 
+         
         
         const response = await axiosInstance.get(url);
         let transList = []; 

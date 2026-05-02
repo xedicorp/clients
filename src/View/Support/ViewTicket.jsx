@@ -195,76 +195,19 @@ const handleSend = async () => {
           {/* ✅ Screenshot (Conditional) */}
           {ticket.screenshot && (
             <div className="col-lg-6 mt-3 ">
-              <div className="d-flex gap-2">
+              <div className="d-flex gap-2 align-items-center">
                 <label>Screenshot:</label>
-
-                <img
-                  src={getScreenshotUrl()}
-                  alt="screenshot"
-                  style={{
-                    width: "auto",
-                    cursor: "pointer",
-                    height: "100px",
-                    borderRadius: "0px",
-                  }}
-                  onClick={() =>
+                <span  onClick={() =>
                     window.open(getScreenshotUrl(), "_blank")
-                  }
-                />
+                  } style={{ cursor: "pointer", color: "blue" }}>
+                  {ticket.screenshot}
+                </span>
+
               </div>
             </div>
           )}
         </div>
       </div>
-
-      {/* ================= CARD 2 (CHAT UI) ================= */}
-      <div className="card">
-  <h3 className="dashboard-table-title">Conversation</h3>
-
-  <div className="chat-container">
-    {conversation.length === 0 && <p>No messages yet</p>}
-
-    {conversation.map((msg) => {
-      const isClient = msg.clientId !== null;
-
-      return (
-        <div
-          key={msg.id}
-          className={`chat-row ${isClient ? "right" : "left"}`}
-        >
-          <div className="chat-bubble">
-            <p>{msg.message}</p>
-
-            {/* ✅ Attachment */}
-            {msg.attachmentPath && (
-              <img
-                src={getAttachmentUrl(msg.attachmentPath)}
-                alt="attachment"
-                style={{
-                  width: "120px",
-                  marginTop: "8px",
-                  cursor: "pointer",
-                  borderRadius: "6px",
-                }}
-                onClick={() =>
-                  window.open(
-                    getAttachmentUrl(msg.attachmentPath),
-                    "_blank"
-                  )
-                }
-              />
-            )}
-
-            <span>
-              {new Date(msg.createdAt).toLocaleString()}
-            </span>
-          </div>
-        </div>
-      );
-    })}
-  </div>
-</div>
-
       {/* ================= CARD 3 ================= */}
       <div className="card">
         <div className="row">
@@ -352,6 +295,56 @@ const handleSend = async () => {
         </div>
   
 </div>
+
+      {/* ================= CARD 2 (CHAT UI) ================= */}
+      <div className="card">
+  <h3 className="dashboard-table-title">Conversation</h3>
+
+  <div className="chat-container">
+    {conversation.length === 0 && <p>No messages yet</p>}
+
+    {conversation.map((msg) => {
+      const isClient = msg.clientId !== null;
+
+      return (
+        <div
+          key={msg.id}
+          className={`chat-row ${isClient ? "right" : "left"}`}
+        >
+          <div className="chat-bubble">
+            <p>{msg.message}</p>
+
+            {/* ✅ Attachment */}
+            {msg.attachmentPath && (
+              <img
+                src={getAttachmentUrl(msg.attachmentPath)}
+                alt="attachment"
+                style={{
+                  width: "120px",
+                  marginTop: "8px",
+                  cursor: "pointer",
+                  borderRadius: "6px",
+                }}
+                onClick={() =>
+                  window.open(
+                    getAttachmentUrl(msg.attachmentPath),
+                    "_blank"
+                  )
+                }
+              />
+            )}
+
+            <span>
+              {new Date(msg.createdAt).toLocaleString()}
+            </span>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+      
        
     </div>
   );

@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Loading from '../../assets/Loading.json';
 import Wrapper from './style';
-import XediLoader from '../../components/XediLoader'
+import XediLoader from '../../components/XediLoader';
+import { FaHeadset } from "react-icons/fa";
 
 import axiosInstance from '../../utilities/axiosInstance';
 
@@ -170,7 +171,7 @@ const Login = ({ appSettings }) => {
                 <div className="text-center mb-4">
                 
              
-                <h1>Admin Panel</h1>
+                <img src="src/assets/img/support.png" alt="" />
                
               </div>
             </div>

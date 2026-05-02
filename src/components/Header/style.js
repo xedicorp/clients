@@ -115,7 +115,7 @@ const Wrapper = styled.div`
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: #203351;
+    background: var(--primary-color);
     color: white;
     border: none;
     border-radius: 6px;
@@ -161,7 +161,7 @@ const Wrapper = styled.div`
 
   .profile-circle {
    width: 36px;
-    background: #203351;
+    background: var(--primary-color);
     height: 36px;
     border-radius: 50%;
     border: none;
@@ -218,7 +218,7 @@ const Wrapper = styled.div`
   .dropdown-avatar {
     width: 56px;
     height: 56px;
-    background: #203351;
+    background: var(--primary-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -249,7 +249,7 @@ const Wrapper = styled.div`
     display: inline-block;
     margin-top: 0.25rem;
     padding: 0.25rem 0.75rem;
-    background: #203351;
+    background: var(--primary-color);
     color: white;
     font-size: 0.75rem;
     font-weight: 600;
@@ -288,7 +288,7 @@ const Wrapper = styled.div`
     }
 
     svg {
-      color: #203351;
+      color: var(--primary-color);
       flex-shrink: 0;
     }
 
@@ -308,7 +308,7 @@ const Wrapper = styled.div`
     justify-content: center;
     gap: 0.5rem;
     padding: 0.75rem 1rem;
-    background: #203351;
+    background: var(--primary-color);
     color: white;
     border: none;
     border-radius: 8px;
@@ -319,7 +319,7 @@ const Wrapper = styled.div`
     box-shadow: 0 2px 8px rgba(33, 162, 167, 0.3);
 
     &:hover {
-      background: #203351;
+      background: var(--primary-color);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(33, 162, 167, 0.4);
     }

@@ -5,9 +5,9 @@
 
 :root {
     /* Brand Colors */
-    --primary-color: #203552;
-    --primary-hover: #9c6f26;
-    --secondary-color: #9c6f26;
+    --primary-color: #0B5CFF;
+    --primary-hover: #175be4;
+    --secondary-color: #175be4;
   
     /* Text */
     --text-color: #1f1f1f;
@@ -295,7 +295,7 @@ tbody button {
     padding: 10px 15px;
     border-radius: 0;
     border: none;
-    background: #203351;
+    background: var(--primary-color);
     color: white;
     cursor: pointer;
 }
@@ -5479,7 +5479,7 @@ input:checked + .slider:before {
 }
 
 .chat-row.right .chat-bubble {
-  background: #283550;
+  background: var(--primary-color);
   color: white;
 }
 

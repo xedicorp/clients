@@ -36,7 +36,6 @@ justify-content: center;
       border-radius: 0rem;
       cursor: pointer;
       color: var(--text-color);
-      opacity: 0.85;
       text-decoration: none;
       transition: background 0.25s ease, color 0.25s ease, opacity 0.25s ease;
       flex-shrink: 0;
@@ -44,13 +43,13 @@ justify-content: center;
 
       &:hover {
         background-color: #fff;
-        color: #203351;
+        color: var(--primary-color);
         opacity: 1;
       }
 
       &.active {
-        background-color: color-mix(in srgb, var(--card-color) 80%, #21a2a7 20%);
-        color: #203351;
+        background-color: #fff;
+        color: var(--primary-color);
         font-weight: 600;
       }
 
@@ -74,11 +73,11 @@ justify-content: center;
     }
       .nav-item:hover .icon,
 .nav-item:hover span {
-  color: #203351;
+  color: var(--primary-color);
 }
   .nav-item.active .icon,
 .nav-item.active span {
-  color: #203351;
+  color: var(--primary-color);
 }
   }
 

@@ -21,7 +21,12 @@ const Wrapper = styled.div`
   min-height: 100vh;
   overflow: hidden;
 }
-
+.login-hero img {
+  max-width: 100%;
+  height: auto;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(5%) saturate(7500%) hue-rotate(312deg) brightness(100%) contrast(106%);
+  max-width: 400px;
+  }
 /* Overlay */
 .login-hero::before {
   content: "";

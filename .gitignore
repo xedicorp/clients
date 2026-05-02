@@ -206,6 +206,7 @@ DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
 
+dist/
 # Click-Once directory
 publish/
 
@@ -427,3 +428,4 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+dist/index.html

@@ -298,7 +298,7 @@ const handleSend = async () => {
 
       {/* ================= CARD 2 (CHAT UI) ================= */}
       <div className="card">
-  <h3 className="dashboard-table-title">Conversation</h3>
+  <h3 className="dashboard-table-title">Chat History</h3>
 
   <div className="chat-container">
     {conversation.length === 0 && <p>No messages yet</p>}

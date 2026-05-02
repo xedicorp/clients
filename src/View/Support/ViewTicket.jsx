@@ -143,7 +143,7 @@ const handleSend = async () => {
         <div>
           <h1 className="dashboard-title">Ticket Details</h1>
           <p className="dashboard-subtitle">
-            View full ticket conversation
+            View full ticket details and chat history
           </p>
         </div>
 
@@ -214,13 +214,13 @@ const handleSend = async () => {
           <div className="col-lg-6 col-md-12 mb-3">
             <div className="form-group">
                  <label htmlFor="remarks">
-                                    Add Remark
+                                    Message
                                 </label>
                                 <textarea
                                     id="remarks"
                                     value={remark}
                                     onChange={(e) => setRemark(e.target.value)}
-                                    placeholder="Type your remark here"
+                                    placeholder="Type your message here"
                                     rows="4"
                                     className='form-control'
                                     style={{height:"240px"}}

@@ -214,9 +214,7 @@ formData.append("ClientId", getUserId());
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
 
                     <button className="primary-btn" onClick={() => navigate(-1)}>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
-                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-                        </svg>
+                        
                         Back
                     </button>
                      
@@ -281,7 +279,7 @@ formData.append("ClientId", getUserId());
                                     placeholder="Type your message here"
                                     rows="4"
                                     className='form-control'
-                                    style={{height:"200px"}}
+                                    style={{height:"240px"}}
                                     required
                                 />
                             </div>
@@ -332,10 +330,10 @@ formData.append("ClientId", getUserId());
                          
                     </div>
 
-                    <div className="ocr-payment-actions">
+                    <div className="d-flex ">
                         <button
                             type="submit"
-                            className="primary-btn"
+                            className="primary-btn ms-auto"
                             disabled={saving}
                         >
                             {saving

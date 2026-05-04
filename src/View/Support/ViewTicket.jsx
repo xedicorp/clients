@@ -3,6 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import axiosInstance from "../../utilities/axiosInstance";
 import API_ENDPOINTS, { API_BASE_URL } from "../../utilities/apiConfig";
 import Swal from "sweetalert2";
+import { FaArrowLeft } from "react-icons/fa";
+import { FaList } from "react-icons/fa";
+import { FaClock } from "react-icons/fa";
+import { FaCircleCheck } from "react-icons/fa6";
 
 const TicketDetails = () => {
   const navigate = useNavigate();
@@ -149,6 +153,7 @@ const handleSend = async () => {
 
         <div className="dashboard-header-actions">
 <button className="primary-btn" onClick={() => navigate(-1)}>
+          <FaArrowLeft />
           Back
         </button>
         </div>

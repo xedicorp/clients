@@ -153,110 +153,127 @@ const Login = ({ appSettings }) => {
     }, [handleSubmit]);
 
     return (
-        <Wrapper>
-        {loading && (
-          <div className="loading-overlay">
-            <div className="loading-container">
-              {/* <Lottie animationData={Loading} loop autoplay /> */}
-              <XediLoader/>
-            </div>
+  <Wrapper className='login-bg'>
+    {loading && (
+      <div className="loading-overlay">
+        <div className="loading-container">
+          <XediLoader />
+        </div>
+      </div>
+    )}
+
+    <div className="container-fluid login-container">
+      <div className="row align-items-center">
+
+        {/* LEFT SIDE */}
+        {/* <div className="col-lg-6 d-none d-lg-flex login-hero">
+          <div className="hero-content">
+
+            <img
+              src="/src/assets/img/support.png"
+              alt="Support"
+              className="hero-vector"
+            />
+
           </div>
-        )}
-      
-        <div className="container-fluid login-container">
-          <div className="row">
-      
-            {/* LEFT SIDE */}
-            <div className="col-lg-6 d-none d-lg-flex login-hero text-center"  >
-                <div className="text-center mb-4">
-                
-             
-                <img src="src/assets/img/support.png" alt="" />
-               
-              </div>
+        </div> */}
+
+        {/* RIGHT SIDE */}
+        <div className="col-lg-5 login-right">
+          <div className="login-box">
+
+            {/* TOP LOGO */}
+            <div className="text-center">
+              <img
+                src={appSettings?.logoUrl}
+                alt={appSettings?.companyName}
+                className="login-logo"
+              />
             </div>
-      
-            {/* RIGHT SIDE */}
-            <div className="col-lg-6 login-right">
-              <div className="login-box">
-      
-                <div className="text-center mb-4">
-                  <img
-                    src={appSettings?.logoUrl}
-                    alt={appSettings?.companyName}
-                    style={{ maxWidth: "160px" }}
-                  />
-                </div>
-      
-                <h2 className="mb-2">Welcome Back!</h2>
-                <p className="text-muted mb-4">
-                  Login to continue managing your operations.
-                </p>
-      
-                <form onSubmit={handleSubmit}>
-      
-                  <div className="mb-3 input-group">
-                    <input
-                      type="text"
-                      name="userName"
-                      value={formData.userName}
-                      onChange={handleChange}
-                      placeholder="Username"
-                      className="form-control"
-                      required
-                    />
-                  </div>
-      
-                  <div className="mb-3 input-group">
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      name="password"
-                      value={formData.password}
-                      onChange={handleChange}
-                      placeholder="Password"
-                      className="form-control"
-                      required
-                    />
-                    <button
-                      type="button"
-                      className="toggle-password"
-                      onClick={togglePassword}
-                    >
-                      {showPassword ? <FaEyeSlash /> : <FaEye />}
-                    </button>
-                  </div>
-      
-                  <button
-                    type="submit"
-                    className="primary-btn login-btn"
-                    disabled={loading}
-                  >
-                    {loading ? "Logging in..." : "Login Now"}
-                  </button>
-      
-                </form>
-      
-                {/* <div className="text-center mt-3">
-                    <div className="d-flex justify-content-center">
-                        <p className='m-0'>Forget Password </p>
-                        <button
-                    type="button"
-                    className="forget-btn-link"
-                    onClick={() => navigate("/resetpassword")}
-                  >
-                    Click here
-                  </button>
-                    </div>
-                  
-                </div> */}
-      
-              </div>
+
+            {/* LOGIN TEXT */}
+            <div className="login-content">
+              <h2>Welcome Back</h2>
+
+              <p>
+                Login to continue managing your operations
+              </p>
             </div>
-      
+
+            {/* FORM */}
+            <form onSubmit={handleSubmit}>
+
+              {/* USERNAME */}
+              <div className="input-group">
+                <input
+                  type="text"
+                  name="userName"
+                  value={formData.userName}
+                  onChange={handleChange}
+                  placeholder="Enter Username"
+                  className="form-control"
+                  required
+                />
+              </div>
+
+              {/* PASSWORD */}
+              <div className="input-group">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="Enter Password"
+                  className="form-control"
+                  required
+                />
+
+                <button
+                  type="button"
+                  className="toggle-password"
+                  onClick={togglePassword}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </div>
+
+              {/* OPTIONS */}
+              {/* <div className="login-options">
+
+                <label className="remember-me">
+                  <input type="checkbox" />
+                  <span>Keep me logged in</span>
+                </label>
+
+                <button
+                  type="button"
+                  className="forgot-link"
+                  onClick={() => navigate("/resetpassword")}
+                >
+                  Forgot Password?
+                </button>
+
+              </div> */}
+
+              {/* LOGIN BTN */}
+              <button
+                type="submit"
+                className="login-btn"
+                disabled={loading}
+              >
+                {loading ? "Logging in..." : "Log In"}
+              </button>
+
+            </form>
+            
+
           </div>
         </div>
-      </Wrapper>
-    );
+
+      </div>
+    </div>
+  </Wrapper>
+);
 };
 
 export default Login;

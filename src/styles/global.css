@@ -209,7 +209,11 @@ button[disabled] {
 }
 
 .primary-btn {
-    background-color: var(--primary-color);
+    background: linear-gradient(
+      135deg,
+      var(--primary-color),
+      #334ea2
+    );
     color: var(--white) !important;
     border: none;
     height: 40px;

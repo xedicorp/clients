@@ -247,14 +247,17 @@ const Menu = ({ collapsed, setShowReminderPopup }) => {
                <div className="nav-item"   onClick={() => navigate("/support/create-ticket")}>
                     <div className="icon">
                         <FaCog />
-                    </div>
-
-                    <span>Manage Tickets</span>
-
-                    
+                    </div> 
+                    <span>Manage Tickets</span> 
               
                </div>
-               
+                <div className="nav-item"   onClick={() => navigate("/support/create-ticket")}>
+                    <div className="icon">
+                        <FaCog />
+                    </div> 
+                    <span>Clients</span> 
+              
+               </div>
                 </>
                 
                 

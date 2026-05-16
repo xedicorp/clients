@@ -113,7 +113,7 @@ export const Wrapper = styled.div`
    
 .sidebar {
   width: 280px;
-  background: #2d73ff;
+  background: rgba(8, 47, 110, 0.86);
   min-height: 100vh;
   transition: width 0.3s ease !important;
   overflow: auto;

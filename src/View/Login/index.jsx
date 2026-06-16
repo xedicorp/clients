@@ -33,6 +33,7 @@ const Login = ({ appSettings }) => {
                 const payload = {
                     userName: formData.userName?.trim(),
                     password: formData.password,
+                    slug:"clients"
                 };
 
                 const response = await axiosInstance.post('/Identity/Login', payload);
@@ -50,8 +51,10 @@ const Login = ({ appSettings }) => {
                     data.currentUser ||
                     data?.data?.user ||
                     {};
+                   
+                     localStorage.setItem('tenant_id', user.tenantId);
                 localStorage.setItem('spendwise_user', JSON.stringify(user));
-                localStorage.setItem('userId', user.inpd);
+                localStorage.setItem('userId', user.id);
                 localStorage.setItem('spendwise_permissions', JSON.stringify(data.permissions || data.roles || []));
 
                 // Normalize role name for routing guards (handle multiple api shapes)

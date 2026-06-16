@@ -140,7 +140,7 @@ export default function CreateTicket() {
 
     setSaving(true);
 
-    let clientId="71AFB0B2-EEB7-40C7-9706-E59DE110C847";
+    let clientId=localStorage.getItem("tenant_id") ;
     try {
         const formData = new FormData();
             formData.append("Id", 0);

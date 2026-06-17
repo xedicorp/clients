@@ -156,126 +156,133 @@ const Login = ({ appSettings }) => {
     }, [handleSubmit]);
 
     return (
-  <Wrapper className='login-bg'>
-    {loading && (
-      <div className="loading-overlay">
-        <div className="loading-container">
-          <XediLoader />
-        </div>
-      </div>
-    )}
-
-    <div className="container-fluid login-container">
-      <div className="row align-items-center">
+ <div>
+        {loading && (
+          <div className="loading-overlay">
+            <div className="loading-container">
+              {/* <Lottie animationData={Loading} loop autoplay /> */}
+              <XediLoader/>
+            </div>
+          </div>
+        )}
+        <div className='page-wrapper'>
+          <div className="dc-signin theme-two">
+    <div className="signin-wrapper">
 
         {/* LEFT SIDE */}
-        {/* <div className="col-lg-6 d-none d-lg-flex login-hero">
-          <div className="hero-content">
+        <div className="intro-box">
+            <div className="intro-content style-dark">
 
-            <img
-              src="/src/assets/img/support.png"
-              alt="Support"
-              className="hero-vector"
-            />
-
-          </div>
-        </div> */}
-
-        {/* RIGHT SIDE */}
-        <div className="col-lg-5 login-right">
-          <div className="login-box">
-
-            {/* TOP LOGO */}
-            <div className="text-center">
-              <img
-                src={appSettings?.logoUrl}
-                alt={appSettings?.companyName}
-                className="login-logo"
-              />
-            </div>
-
-            {/* LOGIN TEXT */}
-            <div className="login-content">
-              <h2>Welcome Back</h2>
-
-              <p>
-                Login to continue managing your operations
-              </p>
-            </div>
-
-            {/* FORM */}
-            <form onSubmit={handleSubmit}>
-
-              {/* USERNAME */}
-              <div className="input-group">
-                <input
-                  type="text"
-                  name="userName"
-                  value={formData.userName}
-                  onChange={handleChange}
-                  placeholder="Enter Username"
-                  className="form-control"
-                  required
-                />
-              </div>
-
-              {/* PASSWORD */}
-              <div className="input-group">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Enter Password"
-                  className="form-control"
-                  required
+                <img
+                    src="/src/assets/img/support.png"
+                    className="logo"
+                    alt={appSettings?.companyName}
                 />
 
-                <button
-                  type="button"
-                  className="toggle-password"
-                  onClick={togglePassword}
-                >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </button>
-              </div>
+                <div className="heading-wrapper">
+                    <h2 className="h1">
+                        Welcome to <span>REALe Support Portal</span>
+                    </h2>
+                </div>
 
-              {/* OPTIONS */}
-              {/* <div className="login-options">
+                <div className="text-wrapper">
+                    <p>
+                        Welcome to the REALe Support Portal. Create and manage support tickets, track issue resolution, and communicate directly with our support team.
+                    </p>
+                </div>
 
-                <label className="remember-me">
-                  <input type="checkbox" />
-                  <span>Keep me logged in</span>
-                </label>
+                <div className="btn-wrapper">
+                    <button
+    type="button"
+    className="primary-btn"
+    onClick={() => window.open("https://realeerp.com/", "_blank")}
+>
+    Discover More
+</button>
+                </div>
 
-                <button
-                  type="button"
-                  className="forgot-link"
-                  onClick={() => navigate("/resetpassword")}
-                >
-                  Forgot Password?
-                </button>
-
-              </div> */}
-
-              {/* LOGIN BTN */}
-              <button
-                type="submit"
-                className="login-btn"
-                disabled={loading}
-              >
-                {loading ? "Logging in..." : "Log In"}
-              </button>
-
-            </form>
-            
-
-          </div>
+            </div>
         </div>
 
-      </div>
+        {/* RIGHT SIDE */}
+        <div className="form-box">
+
+            <div className="text-center mb-4">
+                <img
+                    src={appSettings?.logoUrl}
+                    alt={appSettings?.companyName}
+                    style={{ maxWidth: "140px" }}
+                />
+            </div>
+
+            <div className="text-center mb-4">
+                <h3>Sign In</h3>
+                <p className="text-muted">
+                    Enter your credentials to continue
+                </p>
+            </div>
+
+            <form onSubmit={handleSubmit}>
+
+                <div className="form-group mb-3">
+                    <input
+                        type="text"
+                        name="userName"
+                        value={formData.userName}
+                        onChange={handleChange}
+                        className="form-control"
+                        placeholder="Enter Username"
+                        required
+                    />
+                </div>
+
+                <div
+                    className="form-group mb-3 position-relative"
+                >
+                    <input
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        className="form-control"
+                        placeholder="Enter Password"
+                        required
+                    />
+
+                    <button
+                        type="button"
+                        className="toggle-password"
+                        onClick={togglePassword}
+                    >
+                        {showPassword ? (
+                            <FaEyeSlash />
+                        ) : (
+                            <FaEye />
+                        )}
+                    </button>
+                </div>
+
+                <div className="form-group">
+                    <button
+                        type="submit"
+                        className="primary-btn login-btn"
+                        disabled={loading}
+                    >
+                        {loading
+                            ? "Signing In..."
+                            : "Sign In"}
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
     </div>
-  </Wrapper>
+</div>
+        </div>
+        
+      </div>
 );
 };
 

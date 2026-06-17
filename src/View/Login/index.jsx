@@ -36,85 +36,27 @@ const Login = ({ appSettings }) => {
                     slug:"clients"
                 };
 
-                const response = await axiosInstance.post('/Identity/Login', payload);
+                const response = await axiosInstance.post('/Identity/SupportLogin', payload);
                 const data = response?.data || {};
 
                 if (!data?.isSuccessful) {
                     throw new Error('Login failed');
                 }
-
-                
-
-                const user =
-                    data.user ||
-                    data.profile ||
-                    data.currentUser ||
-                    data?.data?.user ||
-                    {};
+ 
+                const detail = data.detail ||{};
                    
-                     localStorage.setItem('tenant_id', user.tenantId);
-                localStorage.setItem('spendwise_user', JSON.stringify(user));
-                localStorage.setItem('userId', user.id);
-                localStorage.setItem('spendwise_permissions', JSON.stringify(data.permissions || data.roles || []));
-
-                // Normalize role name for routing guards (handle multiple api shapes)
-                
-              
-                const currentUsername = formData.userName?.toLowerCase() || '';
+                     localStorage.setItem('tenant_id', detail.id);
+                 
+                const currentUsername = detail.supportUserId?.toLowerCase() || '';
 
                 // Store username for specific role checks
                 localStorage.setItem('userName', currentUsername);
-               
-
                  
-                // Store userId if available
-                const userId = data?.user?.id || data?.userId || user?.id || null;
-                if (userId) {
-                    localStorage.setItem('spendwise_userId', userId);
-                    localStorage.setItem('userId', userId);
-
-                }
-               
-                // ===== STORE ROLE =====
-                const role = data?.user?.roleName || null;
-
-                if (role) {
-                    const normalizedRole = role.replace(/\s+/g, '').toLowerCase();
-                    localStorage.setItem("spendwise_role", normalizedRole);
-                }
-
                 localStorage.setItem('userToken', data?.token);
                 // ===== STORE ROLE ID =====
                 const roleId = data?.user?.roleId || null;
 
-                // Fetch and cache user permissions
-                try {
-                    if (roleId) {
-                        const permResponse = await axiosInstance.get(`/Identity/RolePermissions?roleId=${roleId}`);
-                        const permsData = permResponse?.data || [];
-
-                        // Convert permissions array to object
-                        const permissionsObj = {};
-                        if (Array.isArray(permsData)) {
-                            permsData.forEach(perm => {
-                                permissionsObj[perm.name] = perm.isAssigned === true;
-                            });
-                        } else if (Array.isArray(permsData.value)) {
-                            permsData.value.forEach(perm => {
-                                permissionsObj[perm.name] = perm.isAssigned === true;
-                            });
-                        } else if (Array.isArray(permsData.data)) {
-                            permsData.data.forEach(perm => {
-                                permissionsObj[perm.name] = perm.isAssigned === true;
-                            });
-                        }
-
-                        // Cache permissions
-                        localStorage.setItem('user_permissions', JSON.stringify(permissionsObj));
-                    }
-                } catch (permError) {
-                    // Continue with login even if permissions fetch fails
-                } 
+               
                 setLoading(false);
 
                 await Swal.fire({

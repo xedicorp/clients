@@ -95,6 +95,7 @@ const API_ENDPOINTS = {
     SAVE_ROLE_PERMISSIONS: '/Identity/SaveRolePermissions', // POST - Save role permissions
     USER_TOWNSHIPS: '/Identity/UserTownships', // GET - Get townships assigned to a user (requires userId parameter)
     CHANGE_PASSWORD:'/Identity/ChangePassword',
+    SUPPORT_CHANGE_PASSWORD:'/Identity/SupportChangePassword',
     ASSIGN_USER_TOWNSHIPS: '/Identity/AssignUserTownships', // POST - Assign townships to a user
     REMINDER_LIST: '/Reminder/List',
     REMINDER_LIST_BY_USER_ID: '/Reminder/GetByBookingId', // GET - Get reminders for a user

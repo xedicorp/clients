@@ -81,11 +81,7 @@ const [changePasswordLoading, setChangePasswordLoading] = useState(false);
     const showChangePasswordWindow=()=>{
         setShowChangePasswordModal(true);
     }
-    const getUserId = () => {
-  const stored = localStorage.getItem("userId") ;
-  const parsed = stored ? Number(stored) : NaN;
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
-};
+     
 
 useEffect(() => {
   username = localStorage.getItem("userName") ;
@@ -150,14 +146,14 @@ const handleChangePassword = async () => {
     setChangePasswordLoading(true);
 
     const payload = {
-      userId: getUserId(),
+      tenantId: localStorage.getItem("tenant_id"),
       currentPassword: currentPassword,
       newPassword: newPassword,
       confirmPassword: confirmPassword,
     };
 
     const res = await axiosInstance.put(
-      API_ENDPOINTS.CHANGE_PASSWORD, // 👈 ensure this exists
+      API_ENDPOINTS.SUPPORT_CHANGE_PASSWORD, // 👈 ensure this exists
       payload
     );
 

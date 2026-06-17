@@ -42,8 +42,8 @@ const TicketList = () => {
    // setError(null);
 
     try {
-
-        let url = `${API_ENDPOINTS.SUPPORT_TICKET_LIST}?`; 
+        let clientId=localStorage.getItem("tenant_id") ;
+        let url = `${API_ENDPOINTS.SUPPORT_TICKET_LIST}?clientId=`+clientId; 
          
         
         const response = await axiosInstance.get(url);

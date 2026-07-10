@@ -251,6 +251,12 @@ const Menu = ({ collapsed, setShowReminderPopup }) => {
                     <span>Manage Tickets</span> 
               
                </div>
+               <div className="nav-item"   onClick={() => navigate("/support/subscription")}>
+                    <div className="icon">
+                        <FaCog />
+                    </div> 
+                    <span>Subscriptions & Licenses </span> 
+               </div>
                  
                 </>
                 

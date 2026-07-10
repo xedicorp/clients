@@ -26,6 +26,7 @@ import Login from "./View/Login/index";
 import TicketList from "./View/Support/TicketList"; 
 import CreateTicket from "./View/Support/CreateTicket"; 
 import TicketDetails from "./View/Support/ViewTicket";
+import Subscription from "./View/Support/Subscription";
 import 'quill/dist/quill.snow.css';
 import BackupRestore from "./View/Administration/BackupRestore";
 const isAuthenticated = () => {
@@ -125,6 +126,7 @@ function App() {
                                      
                                       <Route path="support/ticket-list" element={<TicketList />} />
                                         <Route path="support/create-ticket" element={<CreateTicket />} />
+                                        <Route path="support/subscription" element={<Subscription />} />
                                         <Route path="support/view-ticket/:id" element={<TicketDetails />} />
                             </Route>
                          

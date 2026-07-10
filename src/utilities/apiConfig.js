@@ -192,6 +192,10 @@ SEND_FOR_FILE_CHECK: '/Booking/SendForFileCheck', // POST - Send booking for fil
 UPDATE_MARK_FILE_CHECK_STATUS: '/Booking/UpdateMarkFileCheckStatus' ,// POST - Update mark file check status
 TOWNSHIP_BANKS: '/Township/GetTownshipBanks',
 ACCOUNT_UPDATE_DAILY_BALANCE: '/Account/UpdateDailyBalance',
+
+
+GET_CLIENT_INVOICES: "/Invoice/GetByClientId",
+DOWNLOAD_INVOICE: "/Invoice/download",
           };
 
 export default API_ENDPOINTS;

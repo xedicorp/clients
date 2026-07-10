@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import axiosInstance from "../../utilities/axiosInstance";
+import API_ENDPOINTS, { API_BASE_URL } from "../../utilities/apiConfig";
+import Swal from "sweetalert2";
 const SubscriptionLicense = () => {
-
-    const [activeTab, setActiveTab] = useState("subscription");
-
+    const [orders, setOrders] = useState([]);
+const [loadingOrders, setLoadingOrders] = useState(false);
     const currentPlan = {
         company: "Rajbhoomi Build Estate LLP",
         edition: "REALe ERP SaaS Edition",
@@ -18,6 +19,51 @@ const SubscriptionLicense = () => {
             "CRM Module"
         ]
     };
+    const clientId = localStorage.getItem("tenant_id");
+    const fetchOrders = async () => {
+
+    if (!clientId) return;
+
+    try {
+
+        setLoadingOrders(true);
+
+        const response = await axiosInstance.post(
+            `${API_ENDPOINTS.GET_CLIENT_INVOICES}/${clientId}`
+        );
+
+        setOrders(response.data || []);
+
+    } catch (error) {
+
+        console.error(error);
+
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Unable to load invoices."
+        });
+
+    } finally {
+
+        setLoadingOrders(false);
+
+    }
+
+};
+useEffect(() => {
+
+    fetchOrders();
+
+}, []);
+const handleDownloadInvoice = (invoiceId) => {
+
+    window.open(
+        `${API_BASE_URL}${API_ENDPOINTS.DOWNLOAD_INVOICE}/${invoiceId}`,
+        "_blank"
+    );
+
+};
 
     return (
 
@@ -116,7 +162,7 @@ const SubscriptionLicense = () => {
             </div>
 
             <div className="booking-info-row">
-                <label>Status : </label>
+                <label >Status : </label>
                 <span className="booking-info-value">
                     <span
                         className={`booking-status-badge ${
@@ -557,13 +603,13 @@ const SubscriptionLicense = () => {
 
                 <th>Order ID</th>
 
-                <th>Invoice No.</th>
+                <th>Invoice No</th>
 
                 <th>Payment Date</th>
 
                 <th>Amount</th>
 
-                <th>Payment Method</th>
+                <th>Paid On</th>
 
                 <th>Status</th>
 
@@ -575,52 +621,76 @@ const SubscriptionLicense = () => {
 
         <tbody>
 
+{
+loadingOrders ?
 
-            <tr>
+<tr>
+    <td colSpan="7" className="text-center">
+        Loading...
+    </td>
+</tr>
 
-                <td>2</td>
+:
 
-                <td>ORD-2026002</td>
+orders.length === 0 ?
 
-                <td>INV-2026002</td>
+<tr>
+    <td colSpan="7" className="text-center">
+        No Orders Found
+    </td>
+</tr>
 
-                <td>15 Aug 2026</td>
+:
 
-                <td>₹5,900</td>
+orders.map((order,index)=>(
 
-                <td>PayU</td>
+<tr key={order.id}>
 
-                <td>
+   <td>{index + 1}</td>
 
-                    <span className="booking-status-booking-status-badge status-confirmed">
-                        Paid
-                    </span>
+<td>{order.id}</td>
 
-                </td>
+<td>{order.invoiceNumber || "-"}</td>
 
-                <td className="text-center d-flex gap-2">
+<td>
+    {order.createdOn
+        ? new Date(order.createdOn).toLocaleDateString()
+        : "-"}
+</td>
 
-                    <button className="primary-btn">
+<td>
+    ₹ {order.totalAmount?.toLocaleString()}
+</td>
 
-                        <i className="fa fa-eye me-1"></i>
+<td>{order.paidON || "-"}</td>
 
-                        View
+<td>
+    <span
+        className={`badge ${
+            order.isPaid
+                ? "bg-success"
+                : "bg-warning text-dark"
+        }`}
+    >
+        {order.isPaid ? "Paid" : "Pending"}
+    </span>
+</td>
 
-                    </button>
+<td>
+    <button
+        className="primary-btn"
+        onClick={() => handleDownloadInvoice(order.id)}
+    >
+        Download
+    </button>
+</td>
+</tr>
 
-                    <button className="primary-btn">
+))
 
-                        <i className="fa fa-download me-1"></i>
+}
 
-                        Download
-
-                    </button>
-
-                </td>
-
-            </tr>
-
-        </tbody>
+</tbody>
 
     </table>
 

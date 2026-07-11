@@ -379,6 +379,8 @@ tr:last-child td {
     position: relative !important;
     top: 0 !important;
     right: 0 !important;
+    width: 35px !important;
+    height: 35px !important;
 }
 
 .modal-close-btn svg {
@@ -396,6 +398,7 @@ tr:last-child td {
     padding: 0 !important;
     border-bottom: none !important;
     background: none !important;
+    justify-content: space-between !important;
 }
 
 /* ============================= */

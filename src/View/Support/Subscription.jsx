@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import axiosInstance from "../../utilities/axiosInstance";
 import API_ENDPOINTS, { API_BASE_URL } from "../../utilities/apiConfig";
 import Swal from "sweetalert2";
+import SmallModal from "../../components/Modal/SmallModal";
 const SubscriptionLicense = () => {
     const [orders, setOrders] = useState([]);
 const [loadingOrders, setLoadingOrders] = useState(false);
+const [showUpgradeModal, setShowUpgradeModal] = useState(false);
     const currentPlan = {
         company: "Rajbhoomi Build Estate LLP",
         edition: "REALe ERP SaaS Edition",
@@ -91,14 +93,13 @@ const handleDownloadInvoice = (invoiceId) => {
 
                     <div className="text-end">
 
-                        <button
-                            className="primary-btn">
-
-                            <i className="fa fa-arrow-up me-2"></i>
-
-                            Upgrade Subscription
-
-                        </button>
+                       <button
+    className="primary-btn"
+    onClick={() => setShowUpgradeModal(true)}
+>
+    <i className="fa fa-arrow-up me-2"></i>
+    Upgrade Subscription
+</button>
 
                     </div>
 
@@ -238,13 +239,13 @@ const handleDownloadInvoice = (invoiceId) => {
 
     </div>
 
-    <button className="primary-btn">
+    {/* <button className="primary-btn">
 
         <i className="fa fa-plus me-2"></i>
 
         Upgrade Module
 
-    </button>
+    </button> */}
 
 </div>
 
@@ -703,288 +704,165 @@ orders.map((order,index)=>(
         Upgrade Subscription Modal
 ============================= */}
 
-<div
-    className="modal fade"
-    id="upgradeSubscriptionModal"
-    tabIndex="-1"
-    aria-hidden="true"
+<SmallModal
+    title="Upgrade Subscription"
+    show={showUpgradeModal}
+    onClose={() => setShowUpgradeModal(false)}
+    size="lg"
+    actions={
+        <>
+            <button
+                className="primary-btn"
+                onClick={() => setShowUpgradeModal(false)}
+            >
+                Cancel
+            </button>
+
+            <button className="primary-btn">
+                <i className="fa fa-credit-card me-2"></i>
+                Proceed to Payment
+            </button>
+        </>
+    }
 >
 
-    <div className="modal-dialog modal-lg modal-dialog-centered">
+    <div className="row">
 
-        <div className="modal-content">
+        {/* Left */}
 
-            <div className="modal-header">
+        <div className="col-lg-7">
 
-                <h5 className="modal-title">
-                    Upgrade Subscription
-                </h5>
+            <h6 className="mb-3">
+                Select Modules
+            </h6>
 
-                <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                ></button>
+            <div className="form-check mb-3">
+                <input
+                    className="form-check-input"
+                    type="checkbox"
+                    defaultChecked
+                />
+                <label className="form-check-label">
+                    Core Module
+                </label>
+            </div>
+
+            <div className="form-check mb-3">
+                <input
+                    className="form-check-input"
+                    type="checkbox"
+                    defaultChecked
+                />
+                <label className="form-check-label">
+                    HR Module
+                </label>
+            </div>
+
+            <div className="form-check mb-3">
+                <input
+                    className="form-check-input"
+                    type="checkbox"
+                    defaultChecked
+                />
+                <label className="form-check-label">
+                    CRM Module
+                </label>
+            </div>
+
+            <div className="form-check mb-3">
+                <input
+                    className="form-check-input"
+                    type="checkbox"
+                />
+                <label className="form-check-label">
+                    Material Module
+                </label>
+            </div>
+
+            <div className="form-check mb-4">
+                <input
+                    className="form-check-input"
+                    type="checkbox"
+                />
+                <label className="form-check-label">
+                    Development Module
+                </label>
+            </div>
+
+            <div>
+
+                <label className="form-label">
+                    Number of Users
+                </label>
+
+                <select className="form-control">
+
+                    <option>5 Users</option>
+                    <option>10 Users</option>
+                    <option>20 Users</option>
+                    <option>30 Users</option>
+                    <option>50 Users</option>
+                    <option>100 Users</option>
+
+                </select>
 
             </div>
 
-            <div className="modal-body">
+        </div>
 
-                <div className="row">
+        {/* Right */}
 
-                    {/* Left */}
+        <div className="col-lg-5">
 
-                    <div className="col-lg-7">
+            <div className="card">
 
-                        <h6 className="mb-3">
-                            Select Modules
-                        </h6>
+                <div className="card-header">
 
-                        <div className="form-check mb-3">
-
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                defaultChecked
-                            />
-
-                            <label className="form-check-label">
-
-                                Core Module
-
-                            </label>
-
-                        </div>
-
-                        <div className="form-check mb-3">
-
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                defaultChecked
-                            />
-
-                            <label className="form-check-label">
-
-                                HR Module
-
-                            </label>
-
-                        </div>
-
-                        <div className="form-check mb-3">
-
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                defaultChecked
-                            />
-
-                            <label className="form-check-label">
-
-                                CRM Module
-
-                            </label>
-
-                        </div>
-
-                        <div className="form-check mb-3">
-
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                            />
-
-                            <label className="form-check-label">
-
-                                Material Module
-
-                            </label>
-
-                        </div>
-
-                        <div className="form-check mb-4">
-
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                            />
-
-                            <label className="form-check-label">
-
-                                Development Module
-
-                            </label>
-
-                        </div>
-
-                        <div className="mb-3">
-
-                            <label className="form-label">
-
-                                Number of Users
-
-                            </label>
-
-                            <select className="form-select">
-
-                                <option>5 Users</option>
-                                <option selected>10 Users</option>
-                                <option>20 Users</option>
-                                <option>30 Users</option>
-                                <option>50 Users</option>
-                                <option>100 Users</option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-                    {/* Right */}
-
-                    <div className="col-lg-5">
-
-                        <div className="card bg-light">
-
-                            <div className="card-header">
-
-                                <strong>
-                                    Order Summary
-                                </strong>
-
-                            </div>
-
-                            <div className="card-body">
-
-                                <div className="d-flex justify-content-between mb-2">
-
-                                    <span>
-
-                                        Core Module
-
-                                    </span>
-
-                                    <span>
-
-                                        ₹5,000
-
-                                    </span>
-
-                                </div>
-
-                                <div className="d-flex justify-content-between mb-2">
-
-                                    <span>
-
-                                        HR Module
-
-                                    </span>
-
-                                    <span>
-
-                                        ₹5,000
-
-                                    </span>
-
-                                </div>
-
-                                <div className="d-flex justify-content-between mb-2">
-
-                                    <span>
-
-                                        CRM Module
-
-                                    </span>
-
-                                    <span>
-
-                                        ₹5,000
-
-                                    </span>
-
-                                </div>
-
-                                <hr />
-
-                                <div className="d-flex justify-content-between">
-
-                                    <span>
-
-                                        Subtotal
-
-                                    </span>
-
-                                    <strong>
-
-                                        ₹15,000
-
-                                    </strong>
-
-                                </div>
-
-                                <div className="d-flex justify-content-between mt-2">
-
-                                    <span>
-
-                                        GST (18%)
-
-                                    </span>
-
-                                    <strong>
-
-                                        ₹2,700
-
-                                    </strong>
-
-                                </div>
-
-                                <hr />
-
-                                <div className="d-flex justify-content-between">
-
-                                    <h5>
-
-                                        Total
-
-                                    </h5>
-
-                                    <h5 className="text-primary">
-
-                                        ₹17,700
-
-                                    </h5>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <strong>
+                        Order Summary
+                    </strong>
 
                 </div>
 
-            </div>
+                <div className="card-body">
 
-            <div className="modal-footer">
+                    <div className="d-flex justify-content-between mb-2">
+                        <span>Core Module</span>
+                        <span>₹5,000</span>
+                    </div>
 
-                <button
-                    className="btn btn-light"
-                    data-bs-dismiss="modal"
-                >
+                    <div className="d-flex justify-content-between mb-2">
+                        <span>HR Module</span>
+                        <span>₹5,000</span>
+                    </div>
 
-                    Cancel
+                    <div className="d-flex justify-content-between mb-2">
+                        <span>CRM Module</span>
+                        <span>₹5,000</span>
+                    </div>
 
-                </button>
+                    <hr />
 
-                <button className="btn btn-primary">
+                    <div className="d-flex justify-content-between">
+                        <span>Subtotal</span>
+                        <strong>₹15,000</strong>
+                    </div>
 
-                    <i className="fa fa-credit-card me-2"></i>
+                    <div className="d-flex justify-content-between mt-2">
+                        <span>GST (18%)</span>
+                        <strong>₹2,700</strong>
+                    </div>
 
-                    Proceed to Payment
+                    <hr />
 
-                </button>
+                    <div className="d-flex justify-content-between">
+                        <h5>Total</h5>
+                        <h5 className="text-primary">
+                            ₹17,700
+                        </h5>
+                    </div>
+
+                </div>
 
             </div>
 
@@ -992,7 +870,7 @@ orders.map((order,index)=>(
 
     </div>
 
-</div>
+</SmallModal>
 
         </div>
 

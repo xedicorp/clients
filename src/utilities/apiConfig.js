@@ -193,7 +193,7 @@ UPDATE_MARK_FILE_CHECK_STATUS: '/Booking/UpdateMarkFileCheckStatus' ,// POST - U
 TOWNSHIP_BANKS: '/Township/GetTownshipBanks',
 ACCOUNT_UPDATE_DAILY_BALANCE: '/Account/UpdateDailyBalance',
 
-
+CLIENT_GET_BY_ID: "/Client/GetById",
 GET_CLIENT_INVOICES: "/Invoice/GetByClientId",
 DOWNLOAD_INVOICE: "/Invoice/download",
           };

@@ -8,20 +8,27 @@ const SubscriptionLicense = () => {
     const [orders, setOrders] = useState([]);
 const [loadingOrders, setLoadingOrders] = useState(false);
 const [showUpgradeModal, setShowUpgradeModal] = useState(false);
-    const currentPlan = {
-        company: "Rajbhoomi Build Estate LLP",
-        edition: "REALe ERP SaaS Edition",
-        users: 10,
-        startDate: "01 Jul 2026",
-        renewalDate: "30 Jun 2027",
-        status: "Active",
-        modules: [
-            "Core Module",
-            "HR Module",
-            "CRM Module"
-        ]
-    };
-    const clientId = localStorage.getItem("tenant_id");
+const [currentPlan, setCurrentPlan] = useState(null);
+const clientId = localStorage.getItem("tenant_id");
+const fetchCurrentSubscription = async () => {
+    if (!clientId) return;
+
+    try {
+        const response = await axiosInstance.get(
+            `${API_ENDPOINTS.CLIENT_GET_BY_ID}/${clientId}`
+        );
+
+        setCurrentPlan(response.data);
+    } catch (error) {
+        console.error(error);
+
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Unable to load subscription details."
+        });
+    }
+};
     const fetchOrders = async () => {
 
     if (!clientId) return;
@@ -54,9 +61,8 @@ const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 
 };
 useEffect(() => {
-
+    fetchCurrentSubscription();
     fetchOrders();
-
 }, []);
 const handleDownloadInvoice = (invoiceId) => {
 
@@ -92,14 +98,14 @@ const handleDownloadInvoice = (invoiceId) => {
                     </div>
 
                     <div className="text-end">
-
+{/* 
                        <button
     className="primary-btn"
     onClick={() => setShowUpgradeModal(true)}
 >
     <i className="fa fa-arrow-up me-2"></i>
     Upgrade Subscription
-</button>
+</button> */}
 
                     </div>
 
@@ -128,51 +134,65 @@ const handleDownloadInvoice = (invoiceId) => {
         <div className="booking-info-matrix">
 
             <div className="booking-info-row">
-                <label>Edition :</label>
+                <label className="me-2">Edition :</label>
                 <span className="booking-info-value">
-                    {currentPlan.edition || "N/A"}
+                    REALe ERP SaaS Edition
                 </span>
             </div>
 
             <div className="booking-info-row">
-                <label>Company :</label>
+                <label className="me-2">Company :</label>
                 <span className="booking-info-value">
-                    {currentPlan.company || "N/A"}
+                    {currentPlan?.organizationName || "N/A"}
                 </span>
             </div>
 
             <div className="booking-info-row">
-                <label>Total Users :</label>
+                <label className="me-2">Total Users :</label>
                 <span className="booking-info-value">
-                    {currentPlan.users || "0"}
+                    {currentPlan?.userLicenses?.[0]?.maxUserLimit || 0}
                 </span>
             </div>
 
             <div className="booking-info-row">
-                <label>Start Date :</label>
+                <label className="me-2">Start Date : </label>
                 <span className="booking-info-value">
-                    {currentPlan.startDate || "N/A"}
+                    {
+currentPlan?.userLicenses?.[0]?.startDate
+    ? new Date(
+        currentPlan.userLicenses[0].startDate
+      ).toLocaleDateString('en-GB')
+    : "N/A"
+}
                 </span>
             </div>
 
             <div className="booking-info-row">
-                <label>Renewal :</label>
+                <label className="me-2">Renewal :</label>
                 <span className="booking-info-value">
-                    {currentPlan.renewalDate || "N/A"}
+                    {
+currentPlan?.userLicenses?.[0]?.endDate
+    ? new Date(
+        currentPlan.userLicenses[0].endDate
+      ).toLocaleDateString('en-GB')
+    : "N/A"
+}
                 </span>
             </div>
 
             <div className="booking-info-row">
-                <label >Status : </label>
+                <label className="me-2">Status : </label>
                 <span className="booking-info-value">
                     <span
-                        className={`booking-status-badge ${
-                            currentPlan.status === "Active"
-                                ? "status-confirmed"
-                                : "bg-danger"
-                        }`}
+                      className={`booking-status-badge ${
+    currentPlan?.userLicenses?.[0]?.isActive === "Y"
+        ? "status-confirmed"
+        : "status-cancelled"
+}`}
                     >
-                        {currentPlan.status}
+                        {currentPlan?.userLicenses?.[0]?.isActive === "Y"
+    ? "Active"
+    : "Inactive"}
                     </span>
                 </span>
             </div>
@@ -199,18 +219,19 @@ const handleDownloadInvoice = (invoiceId) => {
                         marginTop: "8px",
                     }}
                 >
-                    {currentPlan.modules?.length > 0 ? (
-                        currentPlan.modules.map((item, index) => (
-                            <span
-                                key={index}
-                                className="booking-status-badge status-workflow-selected"
-                            >
-                                {item}
-                            </span>
-                        ))
-                    ) : (
-                        "N/A"
-                    )}
+                    {
+currentPlan?.tenantModules?.length > 0 ? (
+    currentPlan.tenantModules.map((module) => (
+        <span
+            key={module.id}
+            className="booking-status-badge status-workflow-selected"
+        >
+            {module.moduleName}
+        </span>
+    ))
+) : (
+    "N/A"
+)}
                 </span>
             </div>
         </div>
@@ -271,205 +292,58 @@ const handleDownloadInvoice = (invoiceId) => {
 
                 <th>Status</th>
 
-                <th className="text-center">Action</th>
+                {/* <th className="text-center">Action</th> */}
 
             </tr>
 
         </thead>
 
         <tbody>
-
-            <tr>
-
-                <td>1</td>
-
-                <td>
-                    <strong>Core Module</strong>
-                </td>
-
-                <td>10</td>
-
-                <td>Annual</td>
-
-                <td>01 Jul 2026</td>
-
-                <td>30 Jun 2027</td>
-
-                <td>
-
-                    <span className="booking-status-badge status-confirmed">
-
-                        Active
-
-                    </span>
-
-                </td>
-
-                <td className="text-center">
-
-                    <button className="primary-btn">
-
-                        Upgrade
-
-                    </button>
-
-                </td>
-
-            </tr>
-
-            <tr>
-
-                <td>2</td>
-
-                <td>
-                    <strong>HR Module</strong>
-                </td>
-
-                <td>10</td>
-
-                <td>Annual</td>
-
-                <td>01 Jul 2026</td>
-
-                <td>30 Jun 2027</td>
-
-                <td>
-
-                    <span className="booking-status-badge status-confirmed">
-
-                        Active
-
-                    </span>
-
-                </td>
-
-                <td className="text-center">
-
-                    <button className="primary-btn">
-
-                        Upgrade
-
-                    </button>
-
-                </td>
-
-            </tr>
-
-            <tr>
-
-                <td>3</td>
-
-                <td>
-                    <strong>CRM Module</strong>
-                </td>
-
-                <td>10</td>
-
-                <td>Annual</td>
-
-                <td>01 Jul 2026</td>
-
-                <td>30 Jun 2027</td>
-
-                <td>
-
-                    <span className="booking-status-badge status-confirmed">
-
-                        Active
-
-                    </span>
-
-                </td>
-
-                <td className="text-center">
-
-                    <button className="primary-btn">
-
-                        Upgrade
-
-                    </button>
-
-                </td>
-
-            </tr>
-
-            <tr>
-
-                <td>4</td>
-
-                <td>
-                    <strong>Material Module</strong>
-                </td>
-
-                <td>-</td>
-
-                <td>-</td>
-
-                <td>-</td>
-
-                <td>-</td>
-
-                <td>
-
-                    <span className="booking-status-badge status-cancelled">
-
-                        Not Subscribed
-
-                    </span>
-
-                </td>
-
-                <td className="text-center">
-
-                    <button className="primary-btn">
-
-                        Subscribe
-
-                    </button>
-
-                </td>
-
-            </tr>
-
-            <tr>
-
-                <td>5</td>
-
-                <td>
-                    <strong>Development Module</strong>
-                </td>
-
-                <td>-</td>
-
-                <td>-</td>
-
-                <td>-</td>
-
-                <td>-</td>
-
-                <td>
-
-                    <span className="booking-status-badge status-cancelled">
-
-                        Not Subscribed
-
-                    </span>
-
-                </td>
-
-                <td className="text-center">
-
-                    <button className="primary-btn">
-
-                        Subscribe
-
-                    </button>
-
-                </td>
-
-            </tr>
-
-        </tbody>
+    {currentPlan?.tenantModules?.map((item, index) => (
+        <tr key={item.id}>
+            <td>{index + 1}</td>
+            <td>
+                <strong>{item.moduleName}</strong>
+            </td>
+            <td>
+                {currentPlan?.userLicenses?.[0]?.maxUserLimit || "-"}
+            </td>
+            <td>Annual</td>
+
+            <td>
+                {item.startDate
+                    ? new Date(item.startDate).toLocaleDateString('en-GB')
+                    : "-"}
+            </td>
+
+            <td>
+                {item.endDate
+                    ? new Date(item.endDate).toLocaleDateString('en-GB')
+                    : "-"}
+            </td>
+
+            <td>
+                <span
+                    className={`booking-status-badge ${
+                        item.isActive === "Y"
+                            ? "status-confirmed"
+                            : "status-cancelled"
+                    }`}
+                >
+                    {item.isActive === "Y"
+                        ? "Active"
+                        : "Inactive"}
+                </span>
+            </td>
+
+            {/* <td className="text-center">
+                <button className="primary-btn">
+                    Upgrade
+                </button>
+            </td> */}
+        </tr>
+    ))}
+</tbody>
 
     </table>
 
@@ -505,71 +379,71 @@ const handleDownloadInvoice = (invoiceId) => {
 
                 <th>License Key</th>
 
-                <th>Module</th>
-
-                <th>Users</th>
+                <th>Max Users</th>
 
                 <th>Activated On</th>
 
                 <th>Expiry Date</th>
-
                 <th>Status</th>
 
-                <th className="text-center">Action</th>
+               
 
             </tr>
 
         </thead>
 
-        <tbody>
-
-            <tr>
-
-                <td>3</td>
-
+       <tbody>
+    {currentPlan?.userLicenses?.length > 0 ? (
+        currentPlan.userLicenses.map((license, index) => (
+            <tr key={license.id}>
+                <td>{index + 1}</td>
                 <td>
-                    <code>LIC-CRM-5QP9-WX73-BC85</code>
+                    {license.id}
                 </td>
 
-                <td>CRM Module</td>
-
-                <td>10</td>
-
-                <td>01 Jul 2026</td>
-
-                <td>30 Jun 2027</td>
+                <td>
+                    {license.maxUserLimit} Users
+                </td>
 
                 <td>
+                    {license.startDate
+                        ? new Date(license.startDate).toLocaleDateString("en-GB")
+                        : "-"}
+                </td>
 
-                    <span className="booking-status-booking-status-badge status-confirmed">
-                        Active
+                <td>
+                    {license.endDate
+                        ? new Date(license.endDate).toLocaleDateString("en-GB")
+                        : "-"}
+                </td>
+
+                <td>
+                    <span
+                        className={`booking-status-badge ${
+                            license.isActive === "Y" ||
+                            license.isActive === true
+                                ? "status-confirmed"
+                                : "status-cancelled"
+                        }`}
+                    >
+                        {license.isActive === "Y" ||
+                        license.isActive === true
+                            ? "Active"
+                            : "Inactive"}
                     </span>
-
                 </td>
 
-                <td className="d-flex gap-2 justify-content-center">
-
-                    <button className="primary-btn">
-
-                        <i className="fa fa-eye me-1"></i>
-
-                        View
-
-                    </button>
-
-                    <button className="primary-btn">
-
-                        <i className="fa fa-copy me-1"></i>
-
-                        Copy
-
-                    </button>
-
-                </td>
-
+               
             </tr>
-
-        </tbody>
+        ))
+    ) : (
+        <tr>
+            <td colSpan={6} className="text-center py-4">
+                No License Found
+            </td>
+        </tr>
+    )}
+</tbody>
 
     </table>
 

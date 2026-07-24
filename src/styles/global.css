@@ -379,6 +379,8 @@ tr:last-child td {
     position: relative !important;
     top: 0 !important;
     right: 0 !important;
+    width: 35px !important;
+    height: 35px !important;
 }
 
 .modal-close-btn svg {
@@ -396,6 +398,7 @@ tr:last-child td {
     padding: 0 !important;
     border-bottom: none !important;
     background: none !important;
+    justify-content: space-between !important;
 }
 
 /* ============================= */
@@ -4535,8 +4538,7 @@ table .actions .primary-btn svg{
     display: flex;
     justify-content: start;
     align-items: center;
-    padding: 16px 0;
-    border-bottom: 2px solid #f1f5f9;
+    padding: 6px 0;
 }
 .booking-info-row label{
     margin-bottom: 0;

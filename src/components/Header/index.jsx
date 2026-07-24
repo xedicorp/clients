@@ -41,9 +41,9 @@ const [changePasswordLoading, setChangePasswordLoading] = useState(false);
     : "";
 
   const role = localStorage.getItem("spendwise_role") || "User";
-  const email = localStorage.getItem("spendwise_email") || "user@rajbhoomi.com";
+  const email = localStorage.getItem("spendwise_email") ;
   const phone =
-    localStorage.getItem("spendwise_phone") || "+91 XXXXXXXXXX";
+    localStorage.getItem("spendwise_phone") ;
 
   const handleProfileClick = () => {
     setShowDropdown((prev) => !prev);
@@ -234,14 +234,14 @@ const handleChangePassword = async () => {
                       </div>
                     </div>
                     <div className="dropdown-details">
-                      <div className="detail-item">
+                      {/* <div className="detail-item">
                         <Mail size={16} />
                         <span>{email}</span>
                       </div>
                       <div className="detail-item">
                         <Phone size={16} />
                         <span>{phone}</span>
-                      </div>
+                      </div> */}
                       <div className="detail-item">
                         <Shield size={16} />
                         <span>Role: {role}</span>

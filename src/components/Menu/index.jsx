@@ -214,7 +214,7 @@ const Menu = ({ collapsed, setShowReminderPopup }) => {
 
            <div className="brand-logo">
                 <img
-                    src={localStorage.getItem("logo2Url")}
+                    src="/src/assets/img/xedilogo.png"
                     alt={localStorage.getItem("companyName")} 
                     className="logo-img"
                 />

@@ -33,7 +33,7 @@ const GeneratePayslip = () => {
 
         {/* HEADER */}
         <div className="payslip-header">
-          <h4 className="fw-bold">Rajbhoomi Group </h4>
+          <h4 className="fw-bold">XEDI Corporation </h4>
           <div>
             <p>Payslip No: <b>#PS4283</b></p>
             <p>Salary Month: <b>March 2026</b></p>

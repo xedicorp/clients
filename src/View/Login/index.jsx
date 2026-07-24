@@ -123,13 +123,13 @@ const Login = ({ appSettings }) => {
 
                 <div className="heading-wrapper">
                     <h2 className="h1">
-                        Welcome to <span>REALe Support Portal</span>
+                        Welcome to <span>XEDI Corporation Support Portal</span>
                     </h2>
                 </div>
 
                 <div className="text-wrapper">
                     <p>
-                        Welcome to the REALe Support Portal. Create and manage support tickets, track issue resolution, and communicate directly with our support team.
+                        Welcome to the XEDI Corporation Support Portal. Create and manage support tickets, track issue resolution, and communicate directly with our support team.
                     </p>
                 </div>
 
@@ -151,7 +151,7 @@ const Login = ({ appSettings }) => {
 
             <div className="text-center mb-4">
                 <img
-                    src={appSettings?.logoUrl}
+                    src="src/assets/img/xedilogo.png"
                     alt={appSettings?.companyName}
                     style={{ maxWidth: "140px" }}
                 />

@@ -41,7 +41,7 @@ const [changePasswordLoading, setChangePasswordLoading] = useState(false);
     : "";
 
   const role = localStorage.getItem("spendwise_role") || "User";
-  const email = localStorage.getItem("spendwise_email") || "user@rajbhoomi.com";
+  const email = localStorage.getItem("spendwise_email") || "user@xedicorporation.com";
   const phone =
     localStorage.getItem("spendwise_phone") || "+91 XXXXXXXXXX";
 
